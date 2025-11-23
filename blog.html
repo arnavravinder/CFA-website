@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - CareForAll</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.css">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div class="nav-overlay" :class="{ active: mobileMenuOpen }" @click="mobileMenuOpen = false"></div>
+
+        <nav class="navbar" :class="{ scrolled: scrolled }">
+            <div class="navbar-container">
+                <div class="navbar-brand">
+                    <button class="mobile-menu-btn" @click="mobileMenuOpen = !mobileMenuOpen">
+                        <i class="uil uil-bars"></i>
+                    </button>
+                    <a href="/" class="logo">
+                        <img src="/static/logo.png" alt="CareForAll">
+                        <span>CareForAll</span>
+                    </a>
+                </div>
+                <div class="navbar-menu" :class="{ active: mobileMenuOpen }">
+                    <a href="/" class="nav-item" @click="closeMenu">Home</a>
+                    <a href="/fundraise" class="nav-item" @click="closeMenu">Fundraising</a>
+                    <a href="/blog" class="nav-item" @click="closeMenu">Blog</a>
+                    <a href="/volunteer" class="nav-item" @click="closeMenu">Volunteer</a>
+                    <a href="/donate" class="nav-item nav-cta">Donate Now</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="page blog-page">
+            <div class="page-hero">
+                <div class="container">
+                    <h1>Our Blog</h1>
+                    <p>Stories from the field, insights into healthcare, and updates on our mission</p>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <div class="container">
+                    <div class="blog-grid">
+                        <a v-for="blog in blogs" :key="blog.url" :href="blog.url" class="blog-card" target="_blank" rel="noopener">
+                            <div class="blog-image">
+                                <img :src="blog.image" :alt="blog.title">
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span class="blog-author">
+                                        <i class="uil uil-user"></i>
+                                        {{ blog.author }}
+                                    </span>
+                                    <span class="blog-date">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        {{ blog.date }}
+                                    </span>
+                                </div>
+                                <h3>{{ blog.title }}</h3>
+                                <p>{{ blog.description }}</p>
+                                <div class="blog-read-more">
+                                    Read More
+                                    <i class="uil uil-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    mobileMenuOpen: false,
+                    scrolled: false,
+                    blogs: [
+                        {
+                            title: 'From Nil to Mil: Celebrating Our 1000+ Impact',
+                            author: 'Sandhya Sundar',
+                            date: '07/07/2024',
+                            image: '/static/blog/nil_to_mil.jpeg',
+                            url: '#',
+                            description: 'CareforAll concluded its 1000+ camp this June and we could not be happier. Over a year of dedication and collaboration with various stakeholders—enthusiastic volunteers, caring doctors and passionate NGOs—has enabled us to impact over 1000 lives in far-reaching and meaningful ways.'
+                        },
+                        {
+                            title: 'From the Field: Healthcare Workers Leading Change',
+                            author: 'Rehan Tarafdar',
+                            date: '07/06/2024',
+                            image: '/static/blog/from_the_field.jpeg',
+                            url: '#',
+                            description: 'In the constantly evolving landscape of healthcare, every hand counts. These dedicated professionals stand at the cornerstone of medical advancement and true care for ailing patients, coming from diverse backgrounds yet united in pioneering the future of medicine.'
+                        },
+                        {
+                            title: 'Why Health Matters: A Prelude to Our Mission',
+                            author: 'Sandhya Sundar',
+                            date: '06/05/2024',
+                            image: '/static/blog/why_health_matters.jpeg',
+                            url: '#',
+                            description: 'The WHO imagines a world where everyone, everywhere, has access to all the health services they might ever need. While many of us are blessed with this privilege, 400 million Indians still face significant healthcare challenges that we are working to address.'
+                        }
+                    ]
+                };
+            },
+            methods: {
+                handleScroll() {
+                    this.scrolled = window.scrollY > 50;
+                },
+                closeMenu() {
+                    this.mobileMenuOpen = false;
+                }
+            },
+            mounted() {
+                window.addEventListener('scroll', this.handleScroll);
+            },
+            beforeUnmount() {
+                window.removeEventListener('scroll', this.handleScroll);
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

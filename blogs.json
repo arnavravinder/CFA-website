@@ -1,0 +1,32 @@
+[
+  {
+    "short_title": "From Nil to Mil...",
+    "title": "From Nil to Mil: Celebrating our 1000+ Impact and the Milestone Camp",
+    "author": "Sandhya Sundar",
+    "image": "/static/blog/nil_to_mil.jpeg",
+    "date": "07/07/2024",
+    "read_time": "2 min",
+    "url": "1_nil_to_mil",
+    "description": "CareforAll concluded its 1000+ camp this June and we couldn't be happier. Over a year of dedication and collaboration with various stakeholders - enthusiastic volunteers, caring doctors and passionate NGOs - has enabled us to impact over 1000 lives in far-reaching and meaningful ways."
+  },
+  {
+    "short_title": "From the Field...",
+    "title": "From the Field: The healthcare workers leading change",
+    "author": "Rehan Tarafdar",
+    "image": "/static/blog/from_the_field.jpeg",
+    "date": "07/06/2024",
+    "read_time": "4 min",
+    "url": "2_from_the_field",
+    "description": "In the constantly evolving landscape of healthcare, every hand counts when fighting potentially life-threatening diseases. Yet, even among these courageous souls, there stands a cadre of dedicated professionals who stand at the cornerstone of medical advancement and true care for ailing patients."
+  },
+  {
+    "short_title": "Why health matters...",
+    "title": "Why health matters: A prelude to CareforAll's mission",
+    "author": "Sandhya Sundar",
+    "image": "/static/blog/why_health_matters.jpeg",
+    "date": "06/05/2024",
+    "read_time": "3 min",
+    "url": "3_why_health_matters",
+    "description": "In defining universal health coverage, the World Health Organisation (WHO) imagines a world where everyone, everywhere, has access to all the health services they might ever need - and is able to receive it efficiently and affordably. While a lot of us do not have to imagine - having the privilege of access to reliable healthcare is a reality we are blessed with - 400 million Indians have to get creative."
+  }
+]

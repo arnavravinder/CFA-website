@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer - CareForAll</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.css">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div class="nav-overlay" :class="{ active: mobileMenuOpen }" @click="mobileMenuOpen = false"></div>
+
+        <nav class="navbar" :class="{ scrolled: scrolled }">
+            <div class="navbar-container">
+                <div class="navbar-brand">
+                    <button class="mobile-menu-btn" @click="mobileMenuOpen = !mobileMenuOpen">
+                        <i class="uil uil-bars"></i>
+                    </button>
+                    <a href="/" class="logo">
+                        <img src="/static/logo.png" alt="CareForAll">
+                        <span>CareForAll</span>
+                    </a>
+                </div>
+                <div class="navbar-menu" :class="{ active: mobileMenuOpen }">
+                    <a href="/" class="nav-item" @click="closeMenu">Home</a>
+                    <a href="/fundraise" class="nav-item" @click="closeMenu">Fundraising</a>
+                    <a href="/blog" class="nav-item" @click="closeMenu">Blog</a>
+                    <a href="/volunteer" class="nav-item" @click="closeMenu">Volunteer</a>
+                    <a href="/donate" class="nav-item nav-cta">Donate Now</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="page volunteer-page">
+            <div class="page-hero">
+                <div class="container">
+                    <h1>Join Our Mission</h1>
+                    <p>Be the change you want to see in the world</p>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <div class="container">
+                    <div class="volunteer-content">
+                        <div class="volunteer-info">
+                            <h2>Why Volunteer With CareForAll?</h2>
+                            <p style="margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.8;">Volunteering with CareForAll gives you the opportunity to directly impact the lives of underprivileged communities in Bangalore. Whether you're a student, professional, or simply someone who cares, there's a place for you in our team.</p>
+
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <i class="uil uil-heart"></i>
+                                    <div>
+                                        <h3>Make Real Impact</h3>
+                                        <p>Work directly with communities in need, providing healthcare services and awareness to families who need it most. See the tangible difference your efforts make in improving lives.</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="uil uil-users-alt"></i>
+                                    <div>
+                                        <h3>Join a Passionate Community</h3>
+                                        <p>Connect with like-minded individuals, healthcare professionals, and dedicated students who share your passion for social change and community service.</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="uil uil-award"></i>
+                                    <div>
+                                        <h3>Gain Valuable Experience</h3>
+                                        <p>Develop skills in healthcare outreach, event coordination, public health education, and community engagement—experience that looks great on any resume.</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="uil uil-clock"></i>
+                                    <div>
+                                        <h3>Flexible Opportunities</h3>
+                                        <p>Choose from various volunteer roles that fit your schedule and interests—from medical camps to awareness sessions, social media to fundraising.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h2 style="margin-top: 3rem;">Volunteer Opportunities</h2>
+                            <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+                                <div style="background: var(--secondary); padding: 1.5rem; border-radius: 12px;">
+                                    <h3 style="color: var(--accent); margin-bottom: 0.75rem; font-size: 1.25rem;">Medical Camp Support</h3>
+                                    <p style="color: var(--text-secondary); line-height: 1.7;">Help doctors by taking vitals, organizing records, managing queues, and assisting with basic health checkups during our medical camps.</p>
+                                </div>
+                                <div style="background: var(--secondary); padding: 1.5rem; border-radius: 12px;">
+                                    <h3 style="color: var(--accent); margin-bottom: 0.75rem; font-size: 1.25rem;">Awareness Sessions</h3>
+                                    <p style="color: var(--text-secondary); line-height: 1.7;">Educate children and adults about hygiene, nutrition, and healthcare practices. Help conduct interactive sessions on hand washing, dental care, and disease prevention.</p>
+                                </div>
+                                <div style="background: var(--secondary); padding: 1.5rem; border-radius: 12px;">
+                                    <h3 style="color: var(--accent); margin-bottom: 0.75rem; font-size: 1.25rem;">Operations & Logistics</h3>
+                                    <p style="color: var(--text-secondary); line-height: 1.7;">Help plan and coordinate camps, manage supplies, arrange transportation, and ensure smooth execution of our events.</p>
+                                </div>
+                                <div style="background: var(--secondary); padding: 1.5rem; border-radius: 12px;">
+                                    <h3 style="color: var(--accent); margin-bottom: 0.75rem; font-size: 1.25rem;">Social Media & Content</h3>
+                                    <p style="color: var(--text-secondary); line-height: 1.7;">Create engaging content, manage social media platforms, design graphics, film videos, and help spread awareness about our mission.</p>
+                                </div>
+                                <div style="background: var(--secondary); padding: 1.5rem; border-radius: 12px;">
+                                    <h3 style="color: var(--accent); margin-bottom: 0.75rem; font-size: 1.25rem;">Fundraising & Partnerships</h3>
+                                    <p style="color: var(--text-secondary); line-height: 1.7;">Help identify funding opportunities, reach out to potential donors, organize fundraising events, and build partnerships with NGOs and hospitals.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="volunteer-form-section">
+                            <h2>Volunteer Application</h2>
+                            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">Fill out the form below and we'll get back to you within 48 hours with next steps!</p>
+                            <form @submit.prevent="submitForm" class="volunteer-form">
+                                <input
+                                    type="text"
+                                    v-model="form.name"
+                                    placeholder="Full Name *"
+                                    required
+                                    class="form-input"
+                                    style="background: #fff; color: var(--text-primary); border: 1px solid var(--border);"
+                                >
+                                <input
+                                    type="email"
+                                    v-model="form.email"
+                                    placeholder="Email Address *"
+                                    required
+                                    class="form-input"
+                                    style="background: #fff; color: var(--text-primary); border: 1px solid var(--border);"
+                                >
+                                <input
+                                    type="tel"
+                                    v-model="form.phone"
+                                    placeholder="Phone Number *"
+                                    required
+                                    class="form-input"
+                                    style="background: #fff; color: var(--text-primary); border: 1px solid var(--border);"
+                                >
+                                <input
+                                    type="text"
+                                    v-model="form.location"
+                                    placeholder="Location (City) *"
+                                    required
+                                    class="form-input"
+                                    style="background: #fff; color: var(--text-primary); border: 1px solid var(--border);"
+                                >
+                                <select v-model="form.interest" required class="form-input" style="background: #fff; color: var(--text-primary); border: 1px solid var(--border);">
+                                    <option value="" disabled>Select Area of Interest *</option>
+                                    <option value="medical">Medical Camp Support</option>
+                                    <option value="awareness">Awareness Sessions</option>
+                                    <option value="operations">Operations & Logistics</option>
+                                    <option value="social-media">Social Media & Content</option>
+                                    <option value="fundraising">Fundraising & Partnerships</option>
+                                    <option value="any">Open to Any Role</option>
+                                </select>
+                                <select v-model="form.availability" required class="form-input" style="background: #fff; color: var(--text-primary); border: 1px solid var(--border);">
+                                    <option value="" disabled>Availability *</option>
+                                    <option value="weekends">Weekends Only</option>
+                                    <option value="weekdays">Weekdays</option>
+                                    <option value="flexible">Flexible</option>
+                                    <option value="specific-events">Specific Events Only</option>
+                                </select>
+                                <textarea
+                                    v-model="form.message"
+                                    placeholder="Tell us about yourself and why you want to volunteer with CareForAll *"
+                                    required
+                                    class="form-textarea"
+                                    style="background: #fff; color: var(--text-primary); border: 1px solid var(--border);"
+                                    rows="5"
+                                ></textarea>
+                                <button type="submit" class="form-button" :disabled="submitting">
+                                    <span v-if="!submitting">Submit Application</span>
+                                    <span v-else>Submitting...</span>
+                                    <i class="uil uil-check-circle"></i>
+                                </button>
+                                <div v-if="submitMessage" class="form-message" :class="{ success: submitSuccess }">
+                                    {{ submitMessage }}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" style="background: var(--secondary);">
+                <div class="container">
+                    <h2 style="text-align: center; font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 2rem;">Volunteer Testimonials</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px var(--shadow);">
+                            <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.7;">"Volunteering with CareForAll has been one of the most rewarding experiences. Seeing the smiles on children's faces after health camps makes every moment worthwhile."</p>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;">A</div>
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text-primary);">Ananya</div>
+                                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Medical Volunteer</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px var(--shadow);">
+                            <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.7;">"The skills I've gained through organizing awareness sessions have been invaluable. Plus, I've made lifelong friends who share my passion for social work."</p>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;">R</div>
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text-primary);">Rohan</div>
+                                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Awareness Coordinator</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px var(--shadow);">
+                            <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.7;">"Being part of a team that genuinely cares about making healthcare accessible to everyone has been incredibly inspiring. I've learned so much!"</p>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;">P</div>
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text-primary);">Priya</div>
+                                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Operations Volunteer</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    mobileMenuOpen: false,
+                    scrolled: false,
+                    form: {
+                        name: '',
+                        email: '',
+                        phone: '',
+                        location: '',
+                        interest: '',
+                        availability: '',
+                        message: ''
+                    },
+                    submitting: false,
+                    submitMessage: '',
+                    submitSuccess: false
+                };
+            },
+            methods: {
+                handleScroll() {
+                    this.scrolled = window.scrollY > 50;
+                },
+                closeMenu() {
+                    this.mobileMenuOpen = false;
+                },
+                async submitForm() {
+                    this.submitting = true;
+                    this.submitMessage = '';
+                    try {
+                        await new Promise(resolve => setTimeout(resolve, 1500));
+                        this.submitSuccess = true;
+                        this.submitMessage = 'Thank you for your interest! We will contact you within 48 hours with next steps.';
+                        this.form = { name: '', email: '', phone: '', location: '', interest: '', availability: '', message: '' };
+                    } catch (error) {
+                        this.submitSuccess = false;
+                        this.submitMessage = 'Failed to submit application. Please try again or email us directly.';
+                    } finally {
+                        this.submitting = false;
+                        setTimeout(() => { this.submitMessage = ''; }, 7000);
+                    }
+                }
+            },
+            mounted() {
+                window.addEventListener('scroll', this.handleScroll);
+            },
+            beforeUnmount() {
+                window.removeEventListener('scroll', this.handleScroll);
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

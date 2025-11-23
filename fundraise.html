@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundraising - CareForAll</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.css">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div class="nav-overlay" :class="{ active: mobileMenuOpen }" @click="mobileMenuOpen = false"></div>
+
+        <nav class="navbar" :class="{ scrolled: scrolled }">
+            <div class="navbar-container">
+                <div class="navbar-brand">
+                    <button class="mobile-menu-btn" @click="mobileMenuOpen = !mobileMenuOpen">
+                        <i class="uil uil-bars"></i>
+                    </button>
+                    <a href="/" class="logo">
+                        <img src="/static/logo.png" alt="CareForAll">
+                        <span>CareForAll</span>
+                    </a>
+                </div>
+                <div class="navbar-menu" :class="{ active: mobileMenuOpen }">
+                    <a href="/" class="nav-item" @click="closeMenu">Home</a>
+                    <a href="/fundraise" class="nav-item" @click="closeMenu">Fundraising</a>
+                    <a href="/blog" class="nav-item" @click="closeMenu">Blog</a>
+                    <a href="/volunteer" class="nav-item" @click="closeMenu">Volunteer</a>
+                    <a href="/donate" class="nav-item nav-cta">Donate Now</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="page fundraise-page">
+            <div class="page-hero">
+                <div class="container">
+                    <h1>Support Our Cause</h1>
+                    <p>Help us bring healthcare and hope to underprivileged communities</p>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <div class="container">
+                    <div class="fundraise-content">
+                        <div class="fundraise-info">
+                            <h2>Why Your Support Matters</h2>
+                            <p>Every rupee you contribute directly impacts lives. Your donation funds medical camps, medicines, awareness sessions, and follow-up care for families who otherwise have no access to basic healthcare. We operate with complete transparency—100% of your donation goes towards our mission, with no administrative overhead charged to donors.</p>
+
+                            <div style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%); padding: 2rem; border-radius: 12px; color: #fff; margin: 2rem 0;">
+                                <h3 style="color: #fff; margin-bottom: 1rem;">Our Commitment to Transparency</h3>
+                                <div style="display: grid; gap: 1rem;">
+                                    <div style="display: flex; align-items: start; gap: 1rem;">
+                                        <i class="uil uil-check-circle" style="font-size: 1.5rem; flex-shrink: 0;"></i>
+                                        <p style="margin: 0;">Every camp expense is documented and shared with donors</p>
+                                    </div>
+                                    <div style="display: flex; align-items: start; gap: 1rem;">
+                                        <i class="uil uil-check-circle" style="font-size: 1.5rem; flex-shrink: 0;"></i>
+                                        <p style="margin: 0;">Regular impact reports with photos and testimonials</p>
+                                    </div>
+                                    <div style="display: flex; align-items: start; gap: 1rem;">
+                                        <i class="uil uil-check-circle" style="font-size: 1.5rem; flex-shrink: 0;"></i>
+                                        <p style="margin: 0;">Direct communication with our team about fund utilization</p>
+                                    </div>
+                                    <div style="display: flex; align-items: start; gap: 1rem;">
+                                        <i class="uil uil-check-circle" style="font-size: 1.5rem; flex-shrink: 0;"></i>
+                                        <p style="margin: 0;">Option to sponsor specific camps or initiatives</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="impact-breakdown">
+                                <h3>How Your Donation Helps</h3>
+                                <div class="impact-item">
+                                    <div class="impact-amount">₹500</div>
+                                    <p>Provides complete health checkup, medicines, and follow-up consultation for one child including deworming tablets, basic medicines, and nutritional supplements.</p>
+                                </div>
+                                <div class="impact-item">
+                                    <div class="impact-amount">₹2,500</div>
+                                    <p>Sponsors a comprehensive medical camp for 10 children with doctor consultations, vital checks, medicine distribution, and health education materials.</p>
+                                </div>
+                                <div class="impact-item">
+                                    <div class="impact-amount">₹10,000</div>
+                                    <p>Funds a complete awareness session and medical camp for 50 families including hygiene kits, educational materials, government scheme registrations, and follow-up support.</p>
+                                </div>
+                                <div class="impact-item">
+                                    <div class="impact-amount">₹25,000</div>
+                                    <p>Sponsors an entire community health initiative reaching 100+ families with medical camps, awareness sessions, library setup, and three months of follow-up care.</p>
+                                </div>
+                            </div>
+
+                            <h2 style="margin-top: 3rem;">Where Your Money Goes</h2>
+                            <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+                                <div style="background: var(--secondary); padding: 1.5rem; border-radius: 12px; display: flex; gap: 1.5rem; align-items: start;">
+                                    <i class="uil uil-medkit" style="font-size: 2rem; color: var(--accent); flex-shrink: 0;"></i>
+                                    <div>
+                                        <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Medical Supplies (40%)</h3>
+                                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.7;">Medicines, first-aid supplies, diagnostic equipment, deworming tablets, nutritional supplements, and health monitoring devices.</p>
+                                    </div>
+                                </div>
+                                <div style="background: var(--secondary); padding: 1.5rem; border-radius: 12px; display: flex; gap: 1.5rem; align-items: start;">
+                                    <i class="uil uil-graduation-cap" style="font-size: 2rem; color: var(--accent); flex-shrink: 0;"></i>
+                                    <div>
+                                        <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Awareness Materials (25%)</h3>
+                                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.7;">Educational posters, hygiene kits, demonstration materials, books for rural libraries, and printed guides for families.</p>
+                                    </div>
+                                </div>
+                                <div style="background: var(--secondary); padding: 1.5rem; border-radius: 12px; display: flex; gap: 1.5rem; align-items: start;">
+                                    <i class="uil uil-users-alt" style="font-size: 2rem; color: var(--accent); flex-shrink: 0;"></i>
+                                    <div>
+                                        <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Camp Operations (20%)</h3>
+                                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.7;">Venue arrangements, volunteer transportation, food and refreshments for participants, equipment rental, and camp setup costs.</p>
+                                    </div>
+                                </div>
+                                <div style="background: var(--secondary); padding: 1.5rem; border-radius: 12px; display: flex; gap: 1.5rem; align-items: start;">
+                                    <i class="uil uil-file-check-alt" style="font-size: 2rem; color: var(--accent); flex-shrink: 0;"></i>
+                                    <div>
+                                        <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Follow-up Care (15%)</h3>
+                                        <p style="margin: 0; color: var(--text-secondary); line-height: 1.7;">Tracking patient progress, additional consultations, specialist referrals, continued medication supply, and long-term health monitoring.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cta-section" style="margin-top: 3rem;">
+                                <h3 style="color: #fff;">Ready to Make a Difference?</h3>
+                                <p style="margin: 1rem 0; opacity: 0.95;">Your contribution, no matter the size, brings us one step closer to healthcare for all. Join hundreds of donors who believe in accessible healthcare.</p>
+                                <a href="https://www.ketto.org/fundraiser/providing-healthcare-and-awareness-to-1000-underprivileged-children" target="_blank" rel="noopener" class="donate-button">
+                                    <span>Donate Now</span>
+                                    <i class="uil uil-arrow-right"></i>
+                                </a>
+                                <p class="cta-note">Secure donation via Ketto platform</p>
+                            </div>
+                        </div>
+
+                        <div class="fundraise-visual">
+                            <img src="/static/pics/fundraiser.jpeg" alt="CareForAll Medical Camp" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px var(--shadow-lg);">
+
+                            <div class="fundraise-stats">
+                                <div class="stat-item">
+                                    <i class="uil uil-users-alt"></i>
+                                    <div>
+                                        <div class="stat-value">1300+</div>
+                                        <div class="stat-label">Lives Impacted</div>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="uil uil-moneybag"></i>
+                                    <div>
+                                        <div class="stat-value">₹6L+</div>
+                                        <div class="stat-label">Funds Raised</div>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="uil uil-heartbeat"></i>
+                                    <div>
+                                        <div class="stat-value">8</div>
+                                        <div class="stat-label">Camps Completed</div>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="uil uil-check-circle"></i>
+                                    <div>
+                                        <div class="stat-value">100%</div>
+                                        <div class="stat-label">Transparency</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="background: var(--secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                                <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Other Ways to Support</h3>
+                                <div style="display: grid; gap: 1rem;">
+                                    <div style="display: flex; align-items: start; gap: 1rem;">
+                                        <i class="uil uil-star" style="font-size: 1.25rem; color: var(--accent); flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                        <div>
+                                            <strong style="display: block; margin-bottom: 0.25rem;">Corporate Sponsorship</strong>
+                                            <p style="margin: 0; color: var(--text-secondary); font-size: 0.938rem; line-height: 1.6;">Partner with us for CSR initiatives and employee engagement programs.</p>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: start; gap: 1rem;">
+                                        <i class="uil uil-star" style="font-size: 1.25rem; color: var(--accent); flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                        <div>
+                                            <strong style="display: block; margin-bottom: 0.25rem;">In-Kind Donations</strong>
+                                            <p style="margin: 0; color: var(--text-secondary); font-size: 0.938rem; line-height: 1.6;">Donate medical supplies, educational materials, or books for rural libraries.</p>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: start; gap: 1rem;">
+                                        <i class="uil uil-star" style="font-size: 1.25rem; color: var(--accent); flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                        <div>
+                                            <strong style="display: block; margin-bottom: 0.25rem;">Fundraising Campaigns</strong>
+                                            <p style="margin: 0; color: var(--text-secondary); font-size: 0.938rem; line-height: 1.6;">Organize fundraisers in your community, school, or workplace.</p>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: start; gap: 1rem;">
+                                        <i class="uil uil-star" style="font-size: 1.25rem; color: var(--accent); flex-shrink: 0; margin-top: 0.25rem;"></i>
+                                        <div>
+                                            <strong style="display: block; margin-bottom: 0.25rem;">Monthly Giving</strong>
+                                            <p style="margin: 0; color: var(--text-secondary); font-size: 0.938rem; line-height: 1.6;">Set up recurring donations to provide sustained support for our programs.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" style="background: var(--secondary);">
+                <div class="container">
+                    <h2 style="text-align: center; font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 3rem;">Donor Testimonials</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px var(--shadow);">
+                            <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">"CareForAll's transparency and dedication impressed me. I know exactly where my money goes and can see the real impact through their regular updates and photos from camps."</p>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;">S</div>
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text-primary);">Suresh Kumar</div>
+                                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Monthly Donor</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px var(--shadow);">
+                            <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">"Our company sponsored a medical camp and witnessed firsthand the positive impact on the community. It's heartwarming to see such dedicated young people making a difference."</p>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;">M</div>
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text-primary);">Meera Patel</div>
+                                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Corporate Sponsor</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px var(--shadow);">
+                            <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">"I've been supporting CareForAll for over a year. Their work is genuinely impactful and I love receiving detailed reports on how my contributions help families access healthcare."</p>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;">A</div>
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text-primary);">Amit Sharma</div>
+                                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Regular Donor</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    mobileMenuOpen: false,
+                    scrolled: false
+                };
+            },
+            methods: {
+                handleScroll() {
+                    this.scrolled = window.scrollY > 50;
+                },
+                closeMenu() {
+                    this.mobileMenuOpen = false;
+                }
+            },
+            mounted() {
+                window.addEventListener('scroll', this.handleScroll);
+            },
+            beforeUnmount() {
+                window.removeEventListener('scroll', this.handleScroll);
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
