@@ -1,563 +1,494 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CareForAll - Healthcare for All</title>
+    <meta name="description"
+        content="CareForAll (CFA) is a non-profit organisation dedicated to providing healthcare and awareness to the underprivileged.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.css">
-    <link rel="stylesheet" href="/styles/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
-<body>
-    <div id="app" v-cloak>
-        <div class="nav-overlay" :class="{ active: mobileMenuOpen }" @click="mobileMenuOpen = false"></div>
 
-        <nav class="navbar" :class="{ scrolled: scrolled }">
-            <div class="navbar-container">
-                <div class="navbar-brand">
-                    <button class="mobile-menu-btn" @click="mobileMenuOpen = !mobileMenuOpen">
-                        <i class="uil uil-bars"></i>
-                    </button>
-                    <a href="/" class="logo">
-                        
-                        <img src="/static/logo.png" alt="CareForAll">
-                        <span>CareForAll</span>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <img src="static/logo.png" alt="CareForAll Logo">
+                <span>CareForAll</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <i class="ph ph-list"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#mission" class="nav-link">About Us</a>
+                <a href="#impact" class="nav-link">Our Work</a>
+                <a href="fundraise.html" class="nav-link">Fundraising</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="volunteer.html" class="nav-link">Volunteer</a>
+                <a href="https://www.ketto.org/" target="_blank" class="btn btn-primary">
+                    Donate Now <i class="ph ph-heart-straight-fill"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Healthcare for <span>Everyone</span>, Everywhere.</h1>
+                <p>We are a non-profit organisation on a mission to provide healthcare and awareness to the
+                    underprivileged, impacting over 1000+ lives annually.</p>
+                <div class="hero-buttons">
+                    <a href="https://www.ketto.org/" target="_blank" class="btn btn-accent">
+                        Make a Donation <i class="ph ph-arrow-right"></i>
+                    </a>
+                    <a href="#mission" class="btn btn-outline">
+                        Learn More
                     </a>
                 </div>
+            </div>
+            <div class="hero-image">
+                <img src="static/pics/mission.png" alt="CareForAll Mission">
+            </div>
+        </div>
+    </section>
 
-                <div class="navbar-menu" :class="{ active: mobileMenuOpen }">
-                    <div class="nav-section">
-                        <button class="nav-item dropdown-trigger" @click="toggleDropdown('about')">
-                            <span>About Us</span>
-                            <i class="uil uil-angle-down"></i>
-                        </button>
-                        <div class="dropdown-menu" :class="{ active: dropdowns.about }">
-                            <a href="#mission" class="dropdown-item" @click="closeMenu">Our Mission</a>
-                            <a href="#journey" class="dropdown-item" @click="closeMenu">Key Milestones</a>
-                            <a href="#unique" class="dropdown-item" @click="closeMenu">What Makes Us Unique</a>
-                            <a href="#team" class="dropdown-item" @click="closeMenu">Our Team</a>
-                        </div>
-                    </div>
-
-                    <div class="nav-section">
-                        <button class="nav-item dropdown-trigger" @click="toggleDropdown('work')">
-                            <span>Our Work</span>
-                            <i class="uil uil-angle-down"></i>
-                        </button>
-                        <div class="dropdown-menu" :class="{ active: dropdowns.work }">
-                            <a href="#impact" class="dropdown-item" @click="closeMenu">What We've Done</a>
-                            <a href="#collaborations" class="dropdown-item" @click="closeMenu">Collaborations</a>
-                        </div>
-                    </div>
-
-                    <a href="/fundraise" class="nav-item" @click="closeMenu">Fundraising</a>
-                    <a href="/blog" class="nav-item" @click="closeMenu">Blog</a>
-                    <a href="/volunteer" class="nav-item" @click="closeMenu">Volunteer</a>
-                    <a href="/donate" class="nav-item nav-cta">Donate Now</a>
+    <section class="stats" id="impact">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 data-target="780000">₹7.8L+</h3>
+                    <p>Funds Raised</p>
+                </div>
+                <div class="stat-item">
+                    <h3 data-target="9">9+</h3>
+                    <p>Medical Camps</p>
+                </div>
+                <div class="stat-item">
+                    <h3 data-target="1410">1410+</h3>
+                    <p>Lives Impacted</p>
                 </div>
             </div>
-        </nav>
+        </div>
+    </section>
 
-        <div class="page">
-            <section class="carousel-section">
-                <button @click="prevSlide" class="carousel-arrow left">
-                    <i class="uil uil-angle-left"></i>
-                </button>
-                <div class="carousel">
-                    <div class="carousel-images" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
-                        <img v-for="(image, index) in carouselImages" :key="index" :src="image" :alt="`Carousel ${index + 1}`" class="carousel-slide">
-                    </div>
-                </div>
-                <button @click="nextSlide" class="carousel-arrow right">
-                    <i class="uil uil-angle-right"></i>
-                </button>
-                <div class="carousel-indicators">
-                    <button
-                        v-for="(image, index) in carouselImages"
-                        :key="index"
-                        @click="currentSlide = index"
-                        class="indicator"
-                        :class="{ active: currentSlide === index }"
-                    ></button>
-                </div>
-            </section>
+    <section class="mission" id="mission">
+        <div class="container mission-grid">
+            <div class="mission-image">
+                <img src="static/pics/unique.png" alt="Our Unique Approach"
+                    style="border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
+            </div>
+            <div class="mission-text">
+                <h2>Our Mission</h2>
+                <p>CareForAll (CFA) was birthed with the mission of providing healthcare and awareness to the
+                    underprivileged. Along our journey, we realised our potential to help even more people and spread
+                    our roots into new communities.</p>
+                <p>We hold medical camps and awareness sessions to educate children on hygiene and register adults for
+                    government schemes. We believe in holistic care—restoring health through camps and maintaining it
+                    through awareness.</p>
+                <p><strong>100% Non-Profit:</strong> We fund everything ourselves—medicines, follow-ups, food—leaving
+                    NGOs and schools with zero expense.</p>
+            </div>
+        </div>
+    </section>
 
-            <section class="content-section" id="mission">
-                <div class="container">
-                    <h1 class="section-title">Our Mission</h1>
-                    <div class="content-grid">
-                        <div class="content-image">
-                            <img src="/static/pics/mission.png" alt="Our Mission">
-                        </div>
-                        <div class="content-text">
-                            <p>CareForAll (CFA) is a non-profit organisation that was birthed with the mission of providing 1000+ of the underprivileged with healthcare and awareness.</p>
-                            <p>Along our journey, we have realised that we have the potential to help several more and spread our roots into new communities. Thus, we have reformed our mission statement to impacting 1000+ of the underprivileged annually.</p>
-                        </div>
-                    </div>
+    <section class="timeline-section" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Journey</h2>
+                <p>Key milestones in our mission to serve.</p>
+            </div>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-track">
+                <div class="timeline-card">
+                    <span class="timeline-date">14 May 2023</span>
+                    <h3>First Medical Camp</h3>
+                    <p>Partnered with Building Blocks India foundation for 100 children. General check-ups and
+                        deworming.</p>
+                    <div class="timeline-number">01</div>
                 </div>
-            </section>
-
-            <section class="content-section timeline-section" id="journey">
-                <div class="container">
-                    <h1 class="section-title">Key Milestones</h1>
-                    <div class="timeline">
-                        <div
-                            v-for="(milestone, index) in milestones"
-                            :key="index"
-                            class="timeline-item"
-                            :class="{ active: activeMilestone === index }"
-                            @click="activeMilestone = index"
-                        >
-                            <div class="timeline-marker">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-line" v-if="index < milestones.length - 1"></div>
-                            </div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">{{ milestone.date }}</div>
-                                <h3>{{ milestone.title }}</h3>
-                                <p>{{ milestone.description }}</p>
-                                <img v-if="milestone.image" :src="milestone.image" :alt="milestone.title">
-                            </div>
-                        </div>
-                    </div>
+                <div class="timeline-card">
+                    <span class="timeline-date">24 June 2023</span>
+                    <h3>First Awareness Camp</h3>
+                    <p>Educated children at Diya Ghar foundation on hand washing techniques and hygiene.</p>
+                    <div class="timeline-number">02</div>
                 </div>
-            </section>
-
-            <section class="content-section" id="unique">
-                <div class="container">
-                    <h1 class="section-title">What Makes Us Unique</h1>
-                    <div class="content-grid">
-                        <div class="content-image">
-                            <img src="/static/pics/unique.png" alt="What Makes Us Unique">
-                        </div>
-                        <div class="content-text">
-                            <p>At CareForAll, we hold medical camps and awareness sessions where we educate children on simple, effective hygiene techniques they can easily incorporate into their lives; we also inform and register adults for government schemes they can directly benefit from simultaneously.</p>
-                            <p>We firmly believe that it is necessary to hold both medical and awareness sessions, as while the health camp restore the health conditions of individuals, our awareness sessions serve to maintain these stable conditions and prevents families from returning to the same deteriorating conditions.</p>
-                            <p>Additionally, from the medicines and follow-ups for each individual to the food and drinks we provide at camps and sessions, we fund everything ourselves, leaving the NGOs and schools without any expense of their own.</p>
-                        </div>
-                    </div>
+                <div class="timeline-card">
+                    <span class="timeline-date">05 Aug 2023</span>
+                    <h3>Biggest Medical Camp</h3>
+                    <p>Served over 300 children at Ramagondanahalli Government school.</p>
+                    <div class="timeline-number">03</div>
                 </div>
-            </section>
+                <div class="timeline-card">
+                    <span class="timeline-date">23 Aug 2023</span>
+                    <h3>Featured in Times of India</h3>
+                    <p>Official publicity in the Bangalore Mirror - Times of India newspaper.</p>
+                    <div class="timeline-number">04</div>
+                </div>
+                <div class="timeline-card">
+                    <span class="timeline-date">07 June 2024</span>
+                    <h3>1000+ Lives Impacted</h3>
+                    <p>Reached our major milestone of impacting over 1000 lives through our camps.</p>
+                    <div class="timeline-number">05</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <section class="content-section stats-section" id="impact">
-                <div class="container">
-                    <h1 class="section-title">What We've Done</h1>
-                    <p class="section-description">By mobilising and collaborating with doctors from top-tier hospitals—including Sakra World Hospital and Ramaiah Medical College—engaging student volunteers, and collaborating with well-known NGOs, CareForAll has been able to impact lives through medical camps and awareness sessions.</p>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="uil uil-moneybag"></i>
-                            </div>
-                            <div class="stat-number">{{ stats.funds }}</div>
-                            <div class="stat-label">Funds Raised</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="uil uil-heartbeat"></i>
-                            </div>
-                            <div class="stat-number">{{ stats.camps }}</div>
-                            <div class="stat-label">Camps Completed</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="uil uil-users-alt"></i>
-                            </div>
-                            <div class="stat-number">{{ stats.lives }}</div>
-                            <div class="stat-label">Lives Impacted</div>
+    <section class="content-section" style="padding: 8rem 0; background: var(--bg-surface);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Partners</h2>
+                <p>Collaborating with leading organizations to maximize impact.</p>
+            </div>
+            <div class="partners-grid">
+                <img src="static/colabs/ramaiah.jpeg" alt="Ramaiah Medical College" class="partner-logo">
+                <img src="static/colabs/building blocks.jpeg" alt="Building Blocks" class="partner-logo">
+                <img src="static/colabs/diya.jpeg" alt="Diya Ghar" class="partner-logo">
+                <img src="static/colabs/lending-library.jpeg" alt="Lending Library" class="partner-logo">
+                <img src="static/colabs/sparsh.jpeg" alt="Sparsh Foundation" class="partner-logo">
+                <img src="static/colabs/ramagundanahlli.png" alt="Ramagondanahalli" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet The Team</h2>
+                <p>The passionate individuals driving our mission forward.</p>
+            </div>
+            <div class="team-grid">
+                <!-- Arnav Raj Aggarwal -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/arnav.jpeg" alt="Arnav Raj Aggarwal" class="team-img"
+                            style="object-position: top;">
+                        <div class="team-name-overlay">
+                            <h3>Arnav Raj Aggarwal</h3>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <section class="content-section" id="collaborations">
-                <div class="container">
-                    <h1 class="section-title">Our Collaborations</h1>
-                    <div class="collaborations-grid">
-                        <div v-for="(collab, index) in collaborations" :key="index" class="collab-card">
-                            <img :src="collab.image" :alt="collab.name">
-                        </div>
+                    <div class="team-info">
+                        <p class="team-role">Founder</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            Arnav Raj Aggarwal is the Founder of CareForAll, driven by a vision to bridge the healthcare
+                            gap for underprivileged communities. With a commitment to social impact, he leads the
+                            organization in conducting medical camps, hygiene awareness sessions, and educational
+                            initiatives that have touched over 1000 lives. Arnav's leadership has fostered key
+                            partnerships and brought attention to critical health issues, as he strives to build a
+                            healthier, more equitable future for all.</p>
                     </div>
                 </div>
-            </section>
 
-            <section class="content-section" id="team">
-                <div class="container">
-                    <h1 class="section-title">Our Team</h1>
-                    <div class="team-grid">
-                        <div v-for="(member, index) in teamMembers" :key="index" class="team-card" :class="member.role">
-                            <div class="team-image">
-                                <img :src="member.image" :alt="member.name">
-                            </div>
-                            <div class="team-info">
-                                <h3>{{ member.name }}</h3>
-                                <div class="team-title">{{ member.title }}</div>
-                                <p class="team-description">{{ member.description }}</p>
-                            </div>
+                <!-- Arnav Ravinder -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/arnav_ravinder.png" alt="Arnav Ravinder" class="team-img">
+                        <div class="team-name-overlay">
+                            <h3>Arnav Ravinder</h3>
                         </div>
                     </div>
-
-                    <h2 class="subsection-title">Our Growing Team Of Volunteers</h2>
-                    <div class="volunteers-heart">
-                        <div class="heart-row">
-                            <span class="volunteer-pixel">Aarav Mittal</span>
-                            <span class="volunteer-pixel">Vinay Shukla</span>
-                            <span class="volunteer-pixel empty"></span>
-                            <span class="volunteer-pixel empty"></span>
-                            <span class="volunteer-pixel">Anushka Garimella</span>
-                            <span class="volunteer-pixel">Eshaan</span>
-                        </div>
-                        <div class="heart-row">
-                            <span class="volunteer-pixel">Om Mehta</span>
-                            <span class="volunteer-pixel">Ayaan Matheen</span>
-                            <span class="volunteer-pixel">Trilok Reddy</span>
-                            <span class="volunteer-pixel">Advit Arora</span>
-                            <span class="volunteer-pixel">Ananya Jain</span>
-                            <span class="volunteer-pixel">Aarav Srivastava</span>
-                            <span class="volunteer-pixel">Arjun Yadav</span>
-                            <span class="volunteer-pixel">Arnav Aggarwal</span>
-                        </div>
-                        <div class="heart-row">
-                            <span class="volunteer-pixel">Samrud Reddy</span>
-                            <span class="volunteer-pixel">Aishaani Agarwal</span>
-                            <span class="volunteer-pixel">Abhinav Vallur</span>
-                            <span class="volunteer-pixel">Aanya Kapoor</span>
-                            <span class="volunteer-pixel">Arnav Ravinder</span>
-                            <span class="volunteer-pixel">Neel Malani</span>
-                            <span class="volunteer-pixel">Arya Kenghe</span>
-                            <span class="volunteer-pixel">Nessa Ravindran</span>
-                        </div>
-                        <div class="heart-row">
-                            <span class="volunteer-pixel empty"></span>
-                            <span class="volunteer-pixel">Ananya Prem</span>
-                            <span class="volunteer-pixel">Aarna Sanghvi</span>
-                            <span class="volunteer-pixel">Sandhya Sundar</span>
-                            <span class="volunteer-pixel">Yukthi Pulipati</span>
-                            <span class="volunteer-pixel empty"></span>
-                        </div>
-                        <div class="heart-row">
-                            <span class="volunteer-pixel empty"></span>
-                            <span class="volunteer-pixel empty"></span>
-                            <span class="volunteer-pixel empty"></span>
-                            <span class="volunteer-pixel empty"></span>
-                        </div>
-                        <div class="heart-row">
-                            <span class="volunteer-pixel empty"></span>
-                            <span class="volunteer-pixel empty"></span>
-                        </div>
-                        <div class="heart-row">
-                            <span class="volunteer-pixel empty"></span>
-                        </div>
+                    <div class="team-info">
+                        <p class="team-role">Technology Team</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            Arnav Ravinder is a passionate technologist dedicated to making education and opportunities
+                            accessible to everyone. With expertise in full-stack development and a drive to use tech for
+                            social good, Arnav leads the technology efforts at CareForAll, ensuring our digital presence
+                            drives real-world impact.</p>
                     </div>
                 </div>
-            </section>
+
+                <!-- Tara -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/tara.jpg" alt="Tara" class="team-img">
+                        <div class="team-name-overlay">
+                            <h3>Tara</h3>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <p class="team-role">Head of Content Creation & Digital Design</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            Tara is the head of our content creation and digital design department. She has a passion
+                            for Biology, Chemistry, and hopes to work in biotechnology to bring several advancements to
+                            the healthcare world. She hopes to help grow CareForAll to a larger scale, and improve the
+                            lives of many.</p>
+                    </div>
+                </div>
+
+                <!-- Vanya -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/vanya.jpg" alt="Vanya" class="team-img">
+                        <div class="team-name-overlay">
+                            <h3>Vanya</h3>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <p class="team-role">Head of Content Creation & Digital Design</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            Vanya is the head of our content creation and digital design department. She is passionate
+                            about biology, chemistry and the medical sciences not only in textbooks, but in terms of
+                            translating the sciences to serve people. She loves engaging in dialogue and public service
+                            and action ,therefore wanting to broaden healthcare access and community change through
+                            CareForAll’s page, in an effort to merge compassion and a keenness in medicine to make a
+                            difference.</p>
+                    </div>
+                </div>
+
+                <!-- Dia -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/dia.jpg" alt="Dia" class="team-img">
+                        <div class="team-name-overlay">
+                            <h3>Dia</h3>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <p class="team-role">Finance & Fundraising Team</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            With a deep interest in the life sciences and a commitment to creating meaningful social
+                            impact, Dia hopes to give back to the community through her work at CareForAll. She
+                            contributes to the organization’s financial planning, budgeting, and fundraising efforts
+                            that sustain its outreach initiatives. Guided by compassion and the desire to make a
+                            difference in people’s lives, Dia strives to help CareForAll make quality medical care more
+                            accessible to underprivileged children.</p>
+                    </div>
+                </div>
+
+                <!-- Vivaan -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/vivaan.png" alt="Vivaan" class="team-img">
+                        <div class="team-name-overlay">
+                            <h3>Vivaan</h3>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <p class="team-role">Finance Team</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            Vivaan is part of the finance team at Care for All, where he channels his passion for money
+                            and finance into meaningful impact. Fascinated by how finance can drive growth and
+                            opportunity, he hopes to build a career in finance and business that makes a real
+                            difference. At Care for All, Vivaan hopes to see the organization scale and impact as many
+                            lives as possible, reaching more communities and creating lasting change. Outside of this,
+                            he’s passionate about sports and debate, which fuel his competitive spirit, focus, and
+                            ability to think on his feet.</p>
+                    </div>
+                </div>
+
+                <!-- Meher -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/meher.jpg" alt="Meher" class="team-img">
+                        <div class="team-name-overlay">
+                            <h3>Meher</h3>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <p class="team-role">Digital Designer</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            Meher is a digital designer who combines her passion for creativity and service. Driven by a
+                            deep interest in biology and chemistry, and how they can enhance everyday life, she aims to
+                            expand CareForAll’s reach to as many students as possible. Guided by her commitment to
+                            service, she believes that thoughtful design can create awareness, inspire empathy, and make
+                            healthcare more accessible to the underprivileged.</p>
+                    </div>
+                </div>
+
+                <!-- Aditi -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/aditi.png" alt="Aditi" class="team-img">
+                        <div class="team-name-overlay">
+                            <h3>Aditi</h3>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <p class="team-role">Content Creation Team</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            Aditi is a member of CareForAll’s Content Creation team, and loves both studying and
+                            applying the concepts of Economics, Computer Science and Psychology to her everyday life.
+                            She enjoys observing the world around her as well as researching interesting subjects and
+                            expressing her ideas through writing. With a passion for creating content with intent, she
+                            aims to share CareForAll’s mission and purpose, and help expand their reach through social
+                            media to support its goal of providing healthcare and awareness to the underprivileged.</p>
+                    </div>
+                </div>
+
+                <!-- Alpana -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/alpana.jpg" alt="Alpana" class="team-img">
+                        <div class="team-name-overlay">
+                            <h3>Alpana</h3>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <p class="team-role">Content Creation Team</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            Alpana is part of the content creation team where she utilizes her fondness for creative and
+                            writing skills. Her goal is to implement writing and creativity in the real world through
+                            Care For All, where she will harness her skills to help underprivileged and less fortunate
+                            children. Driven by s belief that writing and creativity holds power, she hopes to use these
+                            skills to largen the scale of Care For All’s reach to help as many children as possible</p>
+                    </div>
+                </div>
+
+                <!-- Twisha -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/twisha.jpg" alt="Twisha" class="team-img">
+                        <div class="team-name-overlay">
+                            <h3>Twisha</h3>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <p class="team-role">Writer & Content Creator</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            Twisha is a writer and content creator drawn to the quiet wonders of the human mind and
+                            body. She finds beauty in biology, meaning in psychology, and endless curiosity in
+                            philosophy. Through CareForAll, she hopes to weave science and story together — turning
+                            information into understanding, and empathy into action.</p>
+                    </div>
+                </div>
+
+                <!-- Aaishwaryaa -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/aaishwaryaa.jpg" alt="Aaishwaryaa" class="team-img">
+                        <div class="team-name-overlay">
+                            <h3>Aaishwaryaa</h3>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <p class="team-role">Social Media Team</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            Aaishwaryaa is part of the social media team with a passion for creating meaningful impact
+                            in society. She aims to use her content creation skills and creative ideas to help
+                            underprivileged children by spreading awareness and driving action through digital
+                            platforms. With a strong interest in dance along with a passion for video editing, graphic
+                            design, and content creation, she enjoys using creativity as a bridge to connect with people
+                            and spark change. Through Care For All, She hopes to further achieve this mission, inspire
+                            empathy, awareness, and social responsibility.</p>
+                    </div>
+                </div>
+
+                <!-- Vittal -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="static/profile picture/vittal.png" alt="Vittal" class="team-img">
+                        <div class="team-name-overlay">
+                            <h3>Vittal</h3>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <p class="team-role">Student & Volunteer</p>
+                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            Vittal is a student, aspiring to work in translational medicine and biochemistry, bridging
+                            scientific research with real-world healthcare solutions. He hopes to give back to the
+                            community and help scale up CareForAll's operation to new heights.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h3>Get In Touch</h3>
-                        <p class="footer-description">Have questions or want to collaborate? We'd love to hear from you.</p>
-                        <div class="footer-social">
-                            <a href="https://instagram.com/careforall" target="_blank" class="social-link">
-                                <i class="uil uil-instagram"></i>
-                            </a>
-                            <a href="https://youtube.com/@careforall" target="_blank" class="social-link">
-                                <i class="uil uil-youtube"></i>
-                            </a>
-                            <a href="https://twitter.com/careforall" target="_blank" class="social-link">
-                                <i class="uil uil-twitter"></i>
-                            </a>
-                            <a href="mailto:contact@careforall.org" class="social-link">
-                                <i class="uil uil-envelope"></i>
-                            </a>
-                            <a href="https://wa.me/1234567890" target="_blank" class="social-link">
-                                <i class="uil uil-whatsapp"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="footer-section">
-                        <h3>Contact Us</h3>
-                        <form @submit.prevent="submitContact" class="contact-form">
-                            <input
-                                type="text"
-                                v-model="form.name"
-                                placeholder="Your Name"
-                                required
-                                class="form-input"
-                            >
-                            <input
-                                type="email"
-                                v-model="form.email"
-                                placeholder="Your Email"
-                                required
-                                class="form-input"
-                            >
-                            <textarea
-                                v-model="form.message"
-                                placeholder="Your Message"
-                                required
-                                class="form-textarea"
-                                rows="4"
-                            ></textarea>
-                            <button type="submit" class="form-button" :disabled="submitting">
-                                <span v-if="!submitting">Send Message</span>
-                                <span v-else>Sending...</span>
-                                <i class="uil uil-message"></i>
-                            </button>
-                            <div v-if="submitMessage" class="form-message" :class="{ success: submitSuccess }">
-                                {{ submitMessage }}
-                            </div>
-                        </form>
-                    </div>
+        <div class="volunteer-section">
+            <div class="section-header">
+                <h2>Our Amazing Volunteers</h2>
+            </div>
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <span class="volunteer-tag">Aarav Mittal</span>
+                    <span class="volunteer-tag">Anushka Garimella</span>
+                    <span class="volunteer-tag">Eshaan</span>
+                    <span class="volunteer-tag">Om Mehta</span>
+                    <span class="volunteer-tag">Ayaan Matheen</span>
+                    <span class="volunteer-tag">Trilok Reddy</span>
+                    <span class="volunteer-tag">Advit Arora</span>
+                    <span class="volunteer-tag">Ananya Jain</span>
+                    <span class="volunteer-tag">Aarav Srivastava</span>
+                    <span class="volunteer-tag">Arjun Yadav</span>
+                    <span class="volunteer-tag">Aarav Mittal</span>
+                    <span class="volunteer-tag">Anushka Garimella</span>
+                    <span class="volunteer-tag">Eshaan</span>
+                    <span class="volunteer-tag">Om Mehta</span>
+                    <span class="volunteer-tag">Ayaan Matheen</span>
+                    <span class="volunteer-tag">Trilok Reddy</span>
+                    <span class="volunteer-tag">Advit Arora</span>
+                    <span class="volunteer-tag">Ananya Jain</span>
+                    <span class="volunteer-tag">Aarav Srivastava</span>
+                    <span class="volunteer-tag">Arjun Yadav</span>
                 </div>
             </div>
-        </footer>
-    </div>
+            <div class="marquee-container" style="margin-top: 1.5rem;">
+                <div class="marquee-content reverse">
+                    <span class="volunteer-tag">Abhinav Vallur</span>
+                    <span class="volunteer-tag">Aanya Kapoor</span>
+                    <span class="volunteer-tag">Arnav Ravinder</span>
+                    <span class="volunteer-tag">Neel Malani</span>
+                    <span class="volunteer-tag">Arya Kenghe</span>
+                    <span class="volunteer-tag">Nessa Ravindran</span>
+                    <span class="volunteer-tag">Ananya Prem</span>
+                    <span class="volunteer-tag">Aarna Sanghvi</span>
+                    <span class="volunteer-tag">Sandhya Sundar</span>
+                    <span class="volunteer-tag">Yukthi Pulipati</span>
+                    <span class="volunteer-tag">Abhinav Vallur</span>
+                    <span class="volunteer-tag">Aanya Kapoor</span>
+                    <span class="volunteer-tag">Arnav Ravinder</span>
+                    <span class="volunteer-tag">Neel Malani</span>
+                    <span class="volunteer-tag">Arya Kenghe</span>
+                    <span class="volunteer-tag">Nessa Ravindran</span>
+                    <span class="volunteer-tag">Ananya Prem</span>
+                    <span class="volunteer-tag">Aarna Sanghvi</span>
+                    <span class="volunteer-tag">Sandhya Sundar</span>
+                    <span class="volunteer-tag">Yukthi Pulipati</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-        const { createApp } = Vue;
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>CareForAll</h2>
+                    <p>Empowering communities through healthcare and awareness.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/careforall" target="_blank" class="social-link"><i
+                                class="ph ph-instagram-logo"></i></a>
+                        <a href="https://youtube.com/@careforall" target="_blank" class="social-link"><i
+                                class="ph ph-youtube-logo"></i></a>
+                        <a href="https://twitter.com/careforall" target="_blank" class="social-link"><i
+                                class="ph ph-twitter-logo"></i></a>
+                        <a href="mailto:contact@careforall.org" class="social-link"><i class="ph ph-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h3>Get in Touch</h3>
+                    <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-        createApp({
-            data() {
-                return {
-                    mobileMenuOpen: false,
-                    scrolled: false,
-                    dropdowns: {
-                        about: false,
-                        work: false
-                    },
-                    currentSlide: 0,
-                    activeMilestone: 0,
-                    carouselImages: [
-                        '/static/img carasoul/1.jpeg',
-                        '/static/img carasoul/2.jpeg',
-                        '/static/img carasoul/3.jpeg',
-                        '/static/img carasoul/4.jpeg'
-                    ],
-                    stats: {
-                        funds: '₹6,00,000',
-                        camps: 8,
-                        lives: 1300
-                    },
-                    milestones: [
-                        {
-                            date: '14/05/2023',
-                            title: 'First Medical Camp',
-                            description: 'We ran our first medical camp on 14th of May 2023 with the Building Blocks India foundation for 100 children. This camp was intended for the general check-ups and deworming for all of the children, and was a major first for CareForAll.',
-                            image: '/static/pics/first med.png'
-                        },
-                        {
-                            date: '08/06/2023',
-                            title: 'Collaboration with Lending Library',
-                            description: 'We expanded our horizons by collaborating with the Lending Library, an organisation which serves as a platform for book and literature exchanges within gated communities in India.',
-                            image: '/static/pics/lending library.png'
-                        },
-                        {
-                            date: '24/06/2023',
-                            title: 'First Awareness Camp',
-                            description: 'We ran our first awareness camp on 24th of June 2023 with the Diya Ghar foundation, where we educated their young children on the importance of hand washing and the correct technique.',
-                            image: '/static/pics/awarness.jpeg'
-                        },
-                        {
-                            date: '05/08/2023',
-                            title: 'Biggest Medical Camp',
-                            description: 'We ran our biggest medical camp yet on 5th of August 2023 with Ramagondanahalli Government school for over 300 children.',
-                            image: '/static/pics/biggest.png'
-                        },
-                        {
-                            date: '23/08/2023',
-                            title: 'Published in Times of India',
-                            description: 'CareForAll was first officially publicised on 23rd of August 2023 in the Bangalore Mirror - Times of India newspaper.',
-                            image: '/static/pics/times.jpeg'
-                        },
-                        {
-                            date: '07/06/2024',
-                            title: '1000+ Lives Impacted!',
-                            description: 'We reached our milestone of impacting over 1000 lives through our medical camps and awareness sessions.',
-                            image: '/static/pics/1000+.jpeg'
-                        }
-                    ],
-                    collaborations: [
-                        { name: 'Ramaiah Medical College', image: '/static/colabs/ramaiah.jpeg' },
-                        { name: 'Building Blocks', image: '/static/colabs/building blocks.jpeg' },
-                        { name: 'Diya Ghar', image: '/static/colabs/diya.jpeg' },
-                        { name: 'Lending Library', image: '/static/colabs/lending-library.jpeg' },
-                        { name: 'Sparsh Foundation', image: '/static/colabs/sparsh.jpeg' },
-                        { name: 'Ramagondanahalli', image: '/static/colabs/ramagundanahlli.png' }
-                    ],
-                    teamMembers: [
-                        {
-                            name: 'Arnav Raj Aggarwal',
-                            title: 'Founder',
-                            image: '/static/profile picture/arnav.jpeg',
-                            description: 'As a perseverant and persistent character, Arnav ensures that we constantly build our CareForAll community, spreading our roots to new communities and a wide pool of collaborative NGOs.',
-                            role: 'founder'
-                        },
-                        {
-                            name: 'Aishaani Agarwal',
-                            title: 'Head Of Social Marketing',
-                            image: '/static/profile picture/aishani.jpeg',
-                            description: 'Aishaani excels in creating engaging social content, video editing, and managing social media platforms. Additionally, she supervises website design and formulates effective media strategies.',
-                            role: 'co-founder'
-                        },
-                        {
-                            name: 'Samrud Reddy',
-                            title: 'Head Of Web Development',
-                            image: '/static/profile picture/samrud.png',
-                            description: 'With strong passions for coding as well as giving back to his community, serving as the Head of Web Development has allowed Samrud to explore both simultaneously.',
-                            role: 'co-founder'
-                        },
-                        {
-                            name: 'Vinay Shukla',
-                            title: 'Co-head of Public Relations',
-                            image: '/static/profile picture/vinay.jpeg',
-                            description: 'A dedication to social change and a deep interest in giving back to the community empowers Vinay to take on an active role in volunteering.',
-                            role: 'co-founder'
-                        },
-                        {
-                            name: 'Siddharth Venkatesh',
-                            title: 'Co-head of Public Relations',
-                            image: '/static/profile picture/sidhearth.jpeg',
-                            description: 'Siddharth is an aspiring engineer and avid cricket fan. With CareForAll he hopes to further express his passion for public speaking as co head of Public Relations.',
-                            role: 'co-founder'
-                        },
-                        {
-                            name: 'Manini Nair',
-                            title: 'Digital Designer',
-                            image: '/static/profile picture/manu.jpeg',
-                            description: 'Manini has a deep passion for interior design and art. She brings a creative flair and a keen eye for aesthetics to the team.',
-                            role: 'member'
-                        },
-                        {
-                            name: 'Kaashvi Nigam',
-                            title: 'Co-head of Finance',
-                            image: '/static/profile picture/kaashvi.jpeg',
-                            description: 'Kaashvi aspires to pursue the field of finance. She has demonstrated agility in decision making, resource allocation and budgeting.',
-                            role: 'member'
-                        },
-                        {
-                            name: 'Aarav Mittal',
-                            title: 'Co-head of Finance',
-                            image: '/static/profile picture/aarav.jpeg',
-                            description: 'Aarav, driven by his passion for finance, has a history of multiple internships, projects, and fundraising experiences.',
-                            role: 'member'
-                        },
-                        {
-                            name: 'Pranoy Mathur',
-                            title: 'Digital Designer',
-                            image: '/static/profile picture/pranoy.jpeg',
-                            description: 'Inspired by biological sciences and a passion for social work, Pranoy Mathur hopes to create a lasting impact in India.',
-                            role: 'member'
-                        },
-                        {
-                            name: 'Paarth Sehgal',
-                            title: 'Co-head of Fundraising',
-                            image: '/static/profile picture/paarth.jpeg',
-                            description: 'Paarth enthusiasm for philanthropy is evident in his years of involvement in humanitarian organisations.',
-                            role: 'member'
-                        },
-                        {
-                            name: 'Surabhi',
-                            title: 'Co-head of Fundraising',
-                            image: '/static/profile picture/surabhi.jpeg',
-                            description: 'Surabhi envisions a world where medical care is a universal right, not a privilege.',
-                            role: 'member'
-                        },
-                        {
-                            name: 'Thea Fernandaz',
-                            title: 'Digital Designer',
-                            image: '/static/profile picture/thea.jpeg',
-                            description: 'Thea is deeply passionate about medicine and is driven by a desire to make a difference in people lives.',
-                            role: 'member'
-                        },
-                        {
-                            name: 'Sandhya Sundar',
-                            title: 'Content Creator',
-                            image: '/static/profile picture/sandhya.jpeg',
-                            description: 'Experience, coupled with a keen interest in creative and professional writing motivates Sandhya.',
-                            role: 'member'
-                        },
-                        {
-                            name: 'Rehan Tarafdar',
-                            title: 'Content Creator',
-                            image: '/static/profile picture/rehan.jpeg',
-                            description: 'Rehan aspires to make a lasting impact on the community and the people around him through his words and ideas.',
-                            role: 'member'
-                        }
-                    ],
-                    volunteers: [
-                        'Aarav Mittal', 'Vinay Shukla', 'Anushka Garimella', 'Eshaan', 'Om Mehta',
-                        'Ayaan Matheen', 'Trilok Reddy', 'Advit Arora', 'Ananya Jain', 'Aarav Srivastava',
-                        'Arjun Yadav', 'Arnav Aggarwal', 'Samrud Reddy', 'Aishaani Agarwal', 'Abhinav Vallur',
-                        'Aanya Kapoor', 'Arnav Ravinder', 'Neel Malani', 'Arya Kenghe', 'Nessa Ravindran',
-                        'Ananya Prem', 'Aarna Sanghvi', 'Sandhya Sundar', 'Yukthi Pulipati'
-                    ],
-                    form: {
-                        name: '',
-                        email: '',
-                        message: ''
-                    },
-                    submitting: false,
-                    submitMessage: '',
-                    submitSuccess: false
-                };
-            },
-            methods: {
-                toggleDropdown(name) {
-                    this.dropdowns[name] = !this.dropdowns[name];
-                },
-                closeMenu() {
-                    this.mobileMenuOpen = false;
-                    this.dropdowns.about = false;
-                    this.dropdowns.work = false;
-                },
-                handleScroll() {
-                    this.scrolled = window.scrollY > 50;
-                },
-                nextSlide() {
-                    this.currentSlide = (this.currentSlide + 1) % this.carouselImages.length;
-                },
-                prevSlide() {
-                    this.currentSlide = this.currentSlide === 0 ? this.carouselImages.length - 1 : this.currentSlide - 1;
-                },
-                goToSlide(index) {
-                    this.currentSlide = index;
-                },
-                async submitContact() {
-                    this.submitting = true;
-                    this.submitMessage = '';
-                    try {
-                        await fetch('/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(this.form) });
-                        this.submitSuccess = true;
-                        this.submitMessage = 'Thank you for your message! We will get back to you soon.';
-                        this.form = { name: '', email: '', message: '' };
-                    } catch (error) {
-                        this.submitSuccess = false;
-                        this.submitMessage = 'Failed to send message. Please try again.';
-                    } finally {
-                        this.submitting = false;
-                        setTimeout(() => {
-                            this.submitMessage = '';
-                        }, 5000);
-                    }
-                }
-            },
-            mounted() {
-                window.addEventListener('scroll', this.handleScroll);
-
-                setInterval(() => {
-                    this.nextSlide();
-                }, 5000);
-            },
-            beforeUnmount() {
-                window.removeEventListener('scroll', this.handleScroll);
-            }
-        }).mount('#app');
-    </script>
+    <script src="scripts/index.js"></script>
 </body>
+
 </html>

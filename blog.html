@@ -1,131 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - CareForAll</title>
+
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.css">
-    <link rel="stylesheet" href="/styles/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    
+    <link rel="stylesheet" href="styles/index.css">
+    <style>
+        .page-hero {
+            padding: 10rem 0 6rem;
+            background: var(--primary);
+            color: var(--text-white);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .blog-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-image {
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+            line-height: 1.3;
+        }
+
+        .blog-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+    </style>
 </head>
+
 <body>
-    <div id="app" v-cloak>
-        <div class="nav-overlay" :class="{ active: mobileMenuOpen }" @click="mobileMenuOpen = false"></div>
+    
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <img src="static/logo.png" alt="CareForAll Logo">
+                <span>CareForAll</span>
+            </a>
 
-        <nav class="navbar" :class="{ scrolled: scrolled }">
-            <div class="navbar-container">
-                <div class="navbar-brand">
-                    <button class="mobile-menu-btn" @click="mobileMenuOpen = !mobileMenuOpen">
-                        <i class="uil uil-bars"></i>
-                    </button>
-                    <a href="/" class="logo">
-                        <img src="/static/logo.png" alt="CareForAll">
-                        <span>CareForAll</span>
-                    </a>
-                </div>
-                <div class="navbar-menu" :class="{ active: mobileMenuOpen }">
-                    <a href="/" class="nav-item" @click="closeMenu">Home</a>
-                    <a href="/fundraise" class="nav-item" @click="closeMenu">Fundraising</a>
-                    <a href="/blog" class="nav-item" @click="closeMenu">Blog</a>
-                    <a href="/volunteer" class="nav-item" @click="closeMenu">Volunteer</a>
-                    <a href="/donate" class="nav-item nav-cta">Donate Now</a>
-                </div>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <i class="ph ph-list"></i>
+            </button>
+
+            <div class="nav-links">
+                <a href="/#mission" class="nav-link">About Us</a>
+                <a href="/#impact" class="nav-link">Our Work</a>
+                <a href="fundraise.html" class="nav-link">Fundraising</a>
+                <a href="blog.html" class="nav-link active" style="color: var(--primary);">Blog</a>
+                <a href="volunteer.html" class="nav-link">Volunteer</a>
+                <a href="https://www.ketto.org/" target="_blank" class="btn btn-primary">
+                    Donate Now <i class="ph ph-heart-straight-fill"></i>
+                </a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <div class="page blog-page">
-            <div class="page-hero">
-                <div class="container">
-                    <h1>Our Blog</h1>
-                    <p>Stories from the field, insights into healthcare, and updates on our mission</p>
-                </div>
-            </div>
-
-            <section class="content-section">
-                <div class="container">
-                    <div class="blog-grid">
-                        <a v-for="blog in blogs" :key="blog.url" :href="blog.url" class="blog-card" target="_blank" rel="noopener">
-                            <div class="blog-image">
-                                <img :src="blog.image" :alt="blog.title">
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-meta">
-                                    <span class="blog-author">
-                                        <i class="uil uil-user"></i>
-                                        {{ blog.author }}
-                                    </span>
-                                    <span class="blog-date">
-                                        <i class="uil uil-calendar-alt"></i>
-                                        {{ blog.date }}
-                                    </span>
-                                </div>
-                                <h3>{{ blog.title }}</h3>
-                                <p>{{ blog.description }}</p>
-                                <div class="blog-read-more">
-                                    Read More
-                                    <i class="uil uil-arrow-right"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
+    <div class="page-hero">
+        <div class="container">
+            <h1>Our Blog</h1>
+            <p>Stories from the field, insights into healthcare, and updates on our mission.</p>
         </div>
     </div>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-        const { createApp } = Vue;
-        createApp({
-            data() {
-                return {
-                    mobileMenuOpen: false,
-                    scrolled: false,
-                    blogs: [
-                        {
-                            title: 'From Nil to Mil: Celebrating Our 1000+ Impact',
-                            author: 'Sandhya Sundar',
-                            date: '07/07/2024',
-                            image: '/static/blog/nil_to_mil.jpeg',
-                            url: '#',
-                            description: 'CareforAll concluded its 1000+ camp this June and we could not be happier. Over a year of dedication and collaboration with various stakeholders—enthusiastic volunteers, caring doctors and passionate NGOs—has enabled us to impact over 1000 lives in far-reaching and meaningful ways.'
-                        },
-                        {
-                            title: 'From the Field: Healthcare Workers Leading Change',
-                            author: 'Rehan Tarafdar',
-                            date: '07/06/2024',
-                            image: '/static/blog/from_the_field.jpeg',
-                            url: '#',
-                            description: 'In the constantly evolving landscape of healthcare, every hand counts. These dedicated professionals stand at the cornerstone of medical advancement and true care for ailing patients, coming from diverse backgrounds yet united in pioneering the future of medicine.'
-                        },
-                        {
-                            title: 'Why Health Matters: A Prelude to Our Mission',
-                            author: 'Sandhya Sundar',
-                            date: '06/05/2024',
-                            image: '/static/blog/why_health_matters.jpeg',
-                            url: '#',
-                            description: 'The WHO imagines a world where everyone, everywhere, has access to all the health services they might ever need. While many of us are blessed with this privilege, 400 million Indians still face significant healthcare challenges that we are working to address.'
-                        }
-                    ]
-                };
-            },
-            methods: {
-                handleScroll() {
-                    this.scrolled = window.scrollY > 50;
-                },
-                closeMenu() {
-                    this.mobileMenuOpen = false;
-                }
-            },
-            mounted() {
-                window.addEventListener('scroll', this.handleScroll);
-            },
-            beforeUnmount() {
-                window.removeEventListener('scroll', this.handleScroll);
-            }
-        }).mount('#app');
-    </script>
+    <section class="content-section" style="padding: 6rem 0;">
+        <div class="container">
+            <div class="blog-grid">
+                
+                <a href="blog-template.html" class="blog-card">
+                    <div class="blog-image">
+                        <img src="static/blog/nil_to_mil.jpeg" alt="From Nil to Mil">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="ph ph-user"></i> Sandhya Sundar</span>
+                            <span><i class="ph ph-calendar-blank"></i> 07 July 2024</span>
+                        </div>
+                        <h3>From Nil to Mil: Celebrating Our 1000+ Impact</h3>
+                        <p>CareforAll concluded its 1000+ camp this June and we could not be happier. Over a year of
+                            dedication and collaboration has enabled us to impact over 1000 lives.</p>
+                        <span class="read-more">Read Article <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                
+                <a href="blog-template.html" class="blog-card">
+                    <div class="blog-image">
+                        <img src="static/blog/from_the_field.jpeg" alt="Healthcare Workers">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="ph ph-user"></i> Rehan Tarafdar</span>
+                            <span><i class="ph ph-calendar-blank"></i> 07 June 2024</span>
+                        </div>
+                        <h3>From the Field: Healthcare Workers Leading Change</h3>
+                        <p>In the constantly evolving landscape of healthcare, every hand counts. These dedicated
+                            professionals stand at the cornerstone of medical advancement.</p>
+                        <span class="read-more">Read Article <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                
+                <a href="blog-template.html" class="blog-card">
+                    <div class="blog-image">
+                        <img src="static/blog/why_health_matters.jpeg" alt="Why Health Matters">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="ph ph-user"></i> Sandhya Sundar</span>
+                            <span><i class="ph ph-calendar-blank"></i> 06 May 2024</span>
+                        </div>
+                        <h3>Why Health Matters: A Prelude to Our Mission</h3>
+                        <p>The WHO imagines a world where everyone, everywhere, has access to all the health services
+                            they might ever need. 400 million Indians still face significant challenges.</p>
+                        <span class="read-more">Read Article <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>CareForAll</h2>
+                    <p>Empowering communities through healthcare and awareness.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/careforall" target="_blank" class="social-link"><i
+                                class="ph ph-instagram-logo"></i></a>
+                        <a href="https://youtube.com/@careforall" target="_blank" class="social-link"><i
+                                class="ph ph-youtube-logo"></i></a>
+                        <a href="https://twitter.com/careforall" target="_blank" class="social-link"><i
+                                class="ph ph-twitter-logo"></i></a>
+                        <a href="mailto:contact@careforall.org" class="social-link"><i class="ph ph-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+                <p>&copy; 2024 CareForAll. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/index.js"></script>
 </body>
+
 </html>
