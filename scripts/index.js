@@ -115,4 +115,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    const teamBios = document.querySelectorAll('.team-bio');
+    const MAX_BIO_LENGTH = 165;
+
+    teamBios.forEach(bio => {
+        const fullText = bio.textContent.trim();
+        if (fullText.length > MAX_BIO_LENGTH) {
+            const truncatedText = fullText.substring(0, MAX_BIO_LENGTH) + '...';
+            bio.textContent = truncatedText;
+
+            const readMoreBtn = document.createElement('button');
+            readMoreBtn.className = 'read-more-btn icon-btn';
+            readMoreBtn.innerHTML = '<i class="ph ph-dots-three" style="font-size: 1.2rem;"></i>';
+            readMoreBtn.setAttribute('aria-label', 'Read More');
+
+            readMoreBtn.addEventListener('click', () => {
+                if (bio.classList.contains('expanded')) {
+                    bio.textContent = truncatedText;
+                    readMoreBtn.innerHTML = '<i class="ph ph-dots-three" style="font-size: 1.2rem;"></i>';
+                    readMoreBtn.setAttribute('aria-label', 'Read More');
+                    bio.classList.remove('expanded');
+                } else {
+                    bio.textContent = fullText;
+                    readMoreBtn.innerHTML = '<i class="ph ph-caret-up" style="font-size: 1.2rem;"></i>';
+                    readMoreBtn.setAttribute('aria-label', 'Show Less');
+                    bio.classList.add('expanded');
+                }
+                bio.appendChild(readMoreBtn);
+            });
+
+            bio.appendChild(readMoreBtn);
+        }
+    });
 });

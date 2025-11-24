@@ -6,23 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer - CareForAll</title>
 
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    
+
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    
+
     <link rel="stylesheet" href="styles/index.css">
     <style>
         .page-hero {
             padding: 10rem 0 6rem;
-            background: var(--primary);
-            color: var(--text-white);
+            background: var(--bg-surface);
+            color: var(--text-main);
             text-align: center;
         }
 
@@ -89,11 +89,32 @@
                 font-size: 3rem;
             }
         }
+
+        .volunteer-form-wrapper .contact-form input,
+        .volunteer-form-wrapper .contact-form textarea,
+        .volunteer-form-wrapper .contact-form select {
+            color: var(--text-main);
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .volunteer-form-wrapper .contact-form input:focus,
+        .volunteer-form-wrapper .contact-form textarea:focus,
+        .volunteer-form-wrapper .contact-form select:focus {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: var(--primary);
+        }
+
+        .volunteer-form-wrapper .contact-form input::placeholder,
+        .volunteer-form-wrapper .contact-form textarea::placeholder {
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
     </style>
 </head>
 
 <body>
-    
+
     <nav class="navbar">
         <div class="container nav-container">
             <a href="/" class="logo">
@@ -178,7 +199,7 @@
                     <div
                         style="background: var(--bg-surface); padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid rgba(0,0,0,0.05);">
                         <h2 style="margin-bottom: 1.5rem;">Apply Now</h2>
-                        <form class="contact-form" action="mailto:contact@careforall.org" method="POST"
+                        <form class="contact-form" action="mailto:careforall1000plus@gmail.com" method="POST"
                             enctype="text/plain">
                             <input type="text" name="name" placeholder="Full Name *" required>
                             <input type="email" name="email" placeholder="Email Address *" required>
@@ -209,7 +230,7 @@
         </div>
     </section>
 
-    
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -219,16 +240,10 @@
                     <div class="footer-social">
                         <a href="https://instagram.com/careforall" target="_blank" class="social-link"><i
                                 class="ph ph-instagram-logo"></i></a>
-                        <a href="https://youtube.com/@careforall" target="_blank" class="social-link"><i
-                                class="ph ph-youtube-logo"></i></a>
-                        <a href="https://twitter.com/careforall" target="_blank" class="social-link"><i
-                                class="ph ph-twitter-logo"></i></a>
-                        <a href="mailto:contact@careforall.org" class="social-link"><i class="ph ph-envelope"></i></a>
+                        <a href="mailto:careforall1000plus@gmail.com" class="social-link"><i
+                                class="ph ph-envelope"></i></a>
                     </div>
                 </div>
-            </div>
-            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
-                <p>&copy; 2024 CareForAll. All rights reserved.</p>
             </div>
         </div>
     </footer>
