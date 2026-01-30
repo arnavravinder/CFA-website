@@ -4,95 +4,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundraising - CareForAll</title>
+    <title>Donate - CareForAll</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="icon" href="static/logo.png" type="image/png">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 
     <link rel="stylesheet" href="styles/index.css">
     <style>
-        .page-hero {
-            padding: 10rem 0 6rem;
-            background: var(--bg-surface);
-            color: var(--text-main);
-            text-align: center;
+        :root {
+            --bg-body: #FAFAF9;
+            --selection: #F472B6;
+            /* Pink selection */
+            --accent-gradient: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);
+
         }
 
-        .page-hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+        ::selection {
+            background: var(--selection);
+            color: #000;
         }
 
-        .page-hero p {
-            font-size: 1.25rem;
-            opacity: 0.9;
+        body {
+            background-color: var(--bg-body);
+            color: #1C1917;
         }
 
-        .fundraise-grid {
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Instrument Serif', serif;
+            letter-spacing: -0.02em;
+        }
+
+
+        .split-layout {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 4rem;
-            margin-top: 4rem;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
         }
 
-        .impact-card {
-            background: var(--bg-subtle);
-            padding: 1.5rem;
-            border-radius: var(--radius-md);
-            margin-bottom: 1rem;
+
+        .content-side {
+            padding: 8rem 4rem 4rem;
             display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 720px;
+            margin-left: auto;
         }
 
-        .impact-card i {
-            font-size: 2rem;
+        .hero-label {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            font-weight: 500;
             color: var(--accent);
-        }
-
-        .impact-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            font-family: var(--font-sans);
-            font-weight: 600;
-        }
-
-        .donation-tier {
-            background: var(--bg-surface);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 1.5rem;
-            border-radius: var(--radius-md);
-            margin-bottom: 1rem;
-            transition: transform 0.2s;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .donation-tier:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .amount {
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
             display: block;
         }
 
+        .hero-title {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: #1C1917;
+        }
+
+        .hero-title span {
+            font-style: italic;
+            position: relative;
+            display: inline-block;
+            color: var(--primary-dark);
+            mix-blend-mode: multiply;
+            z-index: 1;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -0.2em;
+            right: -0.2em;
+            bottom: 0;
+            background-image: url('static/hero-texture.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0.6;
+
+            border-radius: 4px;
+            transform: rotate(-1deg);
+
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #57534E;
+            margin-bottom: 4rem;
+            font-weight: 300;
+        }
+
+
+        .action-side {
+            background: #fff;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            border-left: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .donation-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 30px 60px -15px rgba(249, 115, 22, 0.15);
+
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            text-align: center;
+            position: sticky;
+            top: 100px;
+            overflow: hidden;
+        }
+
+        .qr-wrapper {
+            background: #FAFAF9;
+            padding: 1.5rem;
+            border-radius: 16px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .qr-wrapper:hover {
+            transform: scale(1.02);
+        }
+
+        #qrcode img {
+            mix-blend-mode: multiply;
+        }
+
+
+        .payment-methods {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .app-buttons-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn-app-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 0.5rem;
+            border-radius: 16px;
+            background: #fff;
+            border: 1px solid #E7E5E4;
+            transition: all 0.2s;
+            text-decoration: none;
+            height: auto;
+            min-height: 64px;
+        }
+
+        .btn-app-icon:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background: #FAFAF9;
+        }
+
+        .btn-app-icon img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .btn-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .app-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .click-hint {
+            font-size: 0.75rem;
+            color: #78716C;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .payee-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #F5F5F4;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #44403C;
+            margin-bottom: 2rem;
+        }
+
+        .copy-pill {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border: 1px solid #E7E5E4;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', monospace;
+            font-size: 1rem;
+            color: #1C1917;
+        }
+
+        .copy-pill:hover {
+            border-color: var(--accent);
+            background: #FFF7ED;
+        }
+
+        .copy-pill code {
+            font-family: 'Inter', monospace;
+        }
+
+        .trust-indicator {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            text-align: left;
+            font-size: 0.85rem;
+            color: #78716C;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #F5F5F4;
+        }
+
+
+        .impact-list {
+            margin-top: 2rem;
+        }
+
+        details.premium-accordion {
+            border-bottom: 1px solid #E7E5E4;
+            transition: all 0.3s ease;
+        }
+
+        details.premium-accordion summary {
+            padding: 1.5rem 0;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            color: #A8A29E;
+            transition: color 0.3s;
+        }
+
+        details.premium-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.premium-accordion[open] summary {
+            color: #1C1917;
+        }
+
+        details.premium-accordion summary::after {
+            content: '+';
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
+
+        details.premium-accordion[open] summary::after {
+            content: '-';
+        }
+
+        .accordion-content {
+            padding-bottom: 1.5rem;
+            color: #57534E;
+            line-height: 1.6;
+            font-size: 1rem;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
         @media (max-width: 900px) {
-            .fundraise-grid {
+            .split-layout {
                 grid-template-columns: 1fr;
             }
 
-            .page-hero h1 {
+            .content-side {
+                padding: 6rem 1.5rem 2rem;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-title {
                 font-size: 3rem;
             }
+
+            .action-side {
+                padding: 0 1.5rem 4rem;
+                background: linear-gradient(to bottom, transparent, white);
+                border-left: none;
+            }
+
+            .donation-card {
+                position: static;
+                box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+            }
+
+            .trust-indicator {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+    <style>
+        .navbar {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        details.premium-accordion:nth-of-type(1) summary {
+            color: #0369A1;
+        }
+
+
+        details.premium-accordion:nth-of-type(2) summary {
+            color: #B45309;
+        }
+
+
+        details.premium-accordion:nth-of-type(3) summary {
+            color: #15803D;
+        }
+
+
+        details.premium-accordion:nth-of-type(4) summary {
+            color: #7E22CE;
+        }
+
+
+
+        details.premium-accordion[open] summary {
+            color: #1C1917 !important;
+        }
+
+
+        .copy-pill.copied {
+            background: #ECFDF5;
+            border-color: #10B981;
+            color: #065F46;
+        }
+
+        .copy-pill.copied i {
+            display: none;
+        }
+
+        .copy-pill.copied::after {
+            content: "Copied!";
+            font-size: 0.85rem;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -105,149 +428,168 @@
                 <img src="static/logo.png" alt="CareForAll Logo">
                 <span>CareForAll</span>
             </a>
-
             <button class="mobile-menu-btn" aria-label="Toggle Menu">
                 <i class="ph ph-list"></i>
             </button>
-
             <div class="nav-links">
                 <a href="/#mission" class="nav-link">About Us</a>
                 <a href="/#impact" class="nav-link">Our Work</a>
-                <a href="fundraise.html" class="nav-link active" style="color: var(--primary);">Fundraising</a>
+                <a href="fundraise.html" class="nav-link active" style="color: var(--accent);">Fundraising</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="volunteer.html" class="nav-link">Volunteer</a>
-                <a href="https://www.ketto.org/" target="_blank" class="btn btn-primary">
-                    Donate Now <i class="ph ph-heart-straight-fill"></i>
+
+                <a href="#donate" class="btn btn-primary"
+                    onclick="document.querySelector('#donate').scrollIntoView({behavior: 'smooth'})">
+                    Donate Now
                 </a>
             </div>
         </div>
     </nav>
 
-    <div class="page-hero">
-        <div class="container">
-            <h1>Support Our Cause</h1>
-            <p>Help us bring healthcare and hope to underprivileged communities.</p>
+    <div class="split-layout">
+
+        <div class="content-side">
+            <h1 class="hero-title">Healthcare is a right,<br><span>not a privilege.</span></h1>
+            <p class="hero-desc">
+                Millions lack access to basic medical care. We bridge that gap.
+                Your contribution ensures that dignity, health, and hope reach those who need it most.
+            </p>
+
+            <div class="impact-list">
+                <h3
+                    style="font-size: 1rem; font-family: 'Inter', sans-serif; text-transform: uppercase; color: #A8A29E; margin-bottom: 1rem; letter-spacing: 0.05em;">
+                    Where funds go</h3>
+
+                <details class="premium-accordion" open>
+                    <summary>Medical Supplies</summary>
+                    <div class="accordion-content">
+                        Essential medicines, first-aid kits, diagnostic tools, and nutritional supplements for children
+                        and elderly patients.
+                    </div>
+                </details>
+
+                <details class="premium-accordion">
+                    <summary>Awareness Materials</summary>
+                    <div class="accordion-content">
+                        High-quality educational posters, hygiene guides, and community workshop materials to prevent
+                        disease.
+                    </div>
+                </details>
+
+                <details class="premium-accordion">
+                    <summary>Camp Operations</summary>
+                    <div class="accordion-content">
+                        Logistical support, transportation for volunteer doctors, and safe setup of sterile medical camp
+                        environments.
+                    </div>
+                </details>
+
+                <details class="premium-accordion">
+                    <summary>Follow-up Care</summary>
+                    <div class="accordion-content">
+                        Post-camp case tracking, additional consultations for critical patients, and long-term health
+                        monitoring.
+                    </div>
+                </details>
+            </div>
+        </div>
+
+
+        <div class="action-side" id="donate">
+            <div class="donation-card">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <h3
+                        style="font-family: 'Instrument Serif', serif; font-size: 2rem; color: #1C1917; margin: 0; line-height: 1.1;">
+                        Scan to Pay</h3>
+                </div>
+
+                <div class="qr-wrapper"
+                    style="display: flex; justify-content: center; background: #fff; padding: 1.5rem; border-radius: 20px; border: 1px solid rgba(0,0,0,0.04); margin-bottom: 2rem; width: 100%; box-sizing: border-box;">
+                    <div id="qrcode"></div>
+                </div>
+
+                <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem; color: #A8A29E; font-size: 0.85rem; font-weight: 500;">
+                    <span style="height: 1px; flex: 1; background: #E7E5E4;"></span>
+                    OR
+                    <span style="height: 1px; flex: 1; background: #E7E5E4;"></span>
+                </div>
+
+
+                <div class="payment-methods">
+                    <p style="font-size: 0.85rem; color: #78716C; margin-bottom: 0.75rem; font-weight: 500;">
+                        Pay with any UPI App <span style="font-weight: 400; color: #A8A29E; margin-left: 4px;">(Click to
+                            open)</span>
+                    </p>
+
+                    <div class="app-buttons-row">
+                        <a href="gpay://upi/pay?pa=siddharth186@icici&pn=Siddharth%20Mathur&tn=Donation%20to%20CareForAll"
+                            class="btn-app-icon" aria-label="Google Pay">
+                            <img src="static/icon-gpay.png" alt="Google Pay">
+                        </a>
+                        <a href="phonepe://pay?pa=siddharth186@icici&pn=Siddharth%20Mathur&tn=Donation%20to%20CareForAll"
+                            class="btn-app-icon" aria-label="PhonePe">
+                            <img src="static/icon-phonepe.png" alt="PhonePe">
+                        </a>
+                        <a href="upi://pay?pa=siddharth186@icici&pn=Siddharth%20Mathur&tn=Donation%20to%20CareForAll"
+                            class="btn-app-icon" aria-label="Other UPI Apps">
+                            <img src="static/icon-upi.png" alt="UPI">
+                            <span style="font-size: 0.75rem; font-weight: 500; color: #57534E;">Other</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div style="text-align: left; margin-bottom: 0.5rem;">
+                    <span
+                        style="font-size: 0.75rem; font-weight: 600; color: #78716C; text-transform: uppercase; letter-spacing: 0.05em;">UPI
+                        ID</span>
+                </div>
+                <div class="copy-pill" onclick="copyToClipboard(this, 'siddharth186@icici')"
+                    style="margin-bottom: 1.5rem;">
+                    <code id="upi-id">siddharth186@icici</code>
+                    <i class="ph ph-copy" style="color: #A8A29E;"></i>
+                </div>
+
+                <div class="trust-indicator">
+                    <i class="ph ph-shield-check" style="font-size: 1.5rem; color: #10B981; flex-shrink: 0;"></i>
+                    <div>
+                        <p style="margin-bottom: 0.5rem; color: #44403C; font-weight: 500;">Safe & Transparent.</p>
+                        <p style="font-size: 0.9rem; color: #78716C; line-height: 1.5;">
+                            Funds are managed directly by the CEO. Donations are received by Siddharth Mathur (Father of
+                            the CEO).
+                        </p>
+                        <a href="https://wa.me/919900459105"
+                            style="display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #15803D; margin-top: 0.75rem; font-weight: 500; text-decoration: none;">
+                            <i class="ph ph-whatsapp-logo"></i> Have concerns? WhatsApp us
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <section class="content-section" style="padding: 6rem 0;">
-        <div class="container">
-            <div class="fundraise-grid">
-                <div class="fundraise-info">
-                    <h2>Why Your Support Matters</h2>
-                    <p style="margin-bottom: 2rem; color: var(--text-muted);">Every rupee you contribute directly
-                        impacts lives. Your donation funds medical camps, medicines, awareness sessions, and follow-up
-                        care for families who otherwise have no access to basic healthcare. We operate with complete
-                        transparency.</p>
 
-                    <div
-                        style="background: linear-gradient(135deg, var(--accent) 0%, #EA580C 100%); padding: 2rem; border-radius: var(--radius-md); color: #fff; margin-bottom: 3rem;">
-                        <h3 style="color: #fff; margin-bottom: 1.5rem;">Our Commitment to Transparency</h3>
-                        <div style="display: grid; gap: 1rem;">
-                            <div style="display: flex; gap: 1rem;">
-                                <i class="ph ph-check-circle" style="font-size: 1.5rem;"></i>
-                                <p style="margin: 0;">Every camp expense is documented and shared.</p>
-                            </div>
-                            <div style="display: flex; gap: 1rem;">
-                                <i class="ph ph-check-circle" style="font-size: 1.5rem;"></i>
-                                <p style="margin: 0;">Regular impact reports with photos and testimonials.</p>
-                            </div>
-                            <div style="display: flex; gap: 1rem;">
-                                <i class="ph ph-check-circle" style="font-size: 1.5rem;"></i>
-                                <p style="margin: 0;">100% of donations go to the mission.</p>
-                            </div>
-                        </div>
-                    </div>
+    <script>
 
-                    <h2 style="margin-bottom: 1.5rem;">Where Your Money Goes</h2>
-                    <div class="impact-card">
-                        <i class="ph ph-first-aid-kit"></i>
-                        <div>
-                            <h3>Medical Supplies (40%)</h3>
-                            <p style="color: var(--text-muted);">Medicines, first-aid supplies, diagnostic equipment,
-                                and nutritional supplements.</p>
-                        </div>
-                    </div>
-                    <div class="impact-card">
-                        <i class="ph ph-book-open-text"></i>
-                        <div>
-                            <h3>Awareness Materials (25%)</h3>
-                            <p style="color: var(--text-muted);">Educational posters, hygiene kits, and printed guides
-                                for families.</p>
-                        </div>
-                    </div>
-                    <div class="impact-card">
-                        <i class="ph ph-users-three"></i>
-                        <div>
-                            <h3>Camp Operations (20%)</h3>
-                            <p style="color: var(--text-muted);">Logistics, transportation, and camp setup costs.</p>
-                        </div>
-                    </div>
-                    <div class="impact-card">
-                        <i class="ph ph-heartbeat"></i>
-                        <div>
-                            <h3>Follow-up Care (15%)</h3>
-                            <p style="color: var(--text-muted);">Tracking patient progress and additional consultations.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+        document.addEventListener("DOMContentLoaded", function () {
+            new QRCode(document.getElementById("qrcode"), {
+                text: "upi://pay?pa=siddharth186@icici&pn=Siddharth%20Mathur&tn=Donation%20to%20CareForAll",
+                width: 180,
+                height: 180,
+                colorDark: "#1C1917",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        });
 
-                <div class="sidebar">
-                    <div
-                        style="background: var(--bg-subtle); padding: 2rem; border-radius: var(--radius-lg); position: sticky; top: 100px;">
-                        <h3 style="margin-bottom: 1.5rem;">Impact Breakdown</h3>
-
-                        <div class="donation-tier">
-                            <span class="amount">₹500</span>
-                            <p style="font-size: 0.9rem; color: var(--text-muted);">Provides complete health checkup and
-                                medicines for one child.</p>
-                        </div>
-
-                        <div class="donation-tier">
-                            <span class="amount">₹2,500</span>
-                            <p style="font-size: 0.9rem; color: var(--text-muted);">Sponsors a medical camp for 10
-                                children.</p>
-                        </div>
-
-                        <div class="donation-tier">
-                            <span class="amount">₹10,000</span>
-                            <p style="font-size: 0.9rem; color: var(--text-muted);">Funds a complete awareness session
-                                for 50 families.</p>
-                        </div>
-
-                        <div style="margin-top: 2rem; text-align: center;">
-                            <a href="https://www.ketto.org/" target="_blank" class="btn btn-primary"
-                                style="width: 100%; justify-content: center;">
-                                Donate on Ketto <i class="ph ph-arrow-up-right"></i>
-                            </a>
-                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">Secure donation
-                                via Ketto platform</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h2>CareForAll</h2>
-                    <p>Empowering communities through healthcare and awareness.</p>
-                    <div class="footer-social">
-                        <a href="https://instagram.com/careforall" target="_blank" class="social-link"><i
-                                class="ph ph-instagram-logo"></i></a>
-                        <a href="mailto:careforall1000plus@gmail.com" class="social-link"><i
-                                class="ph ph-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+        function copyToClipboard(el, text) {
+            navigator.clipboard.writeText(text);
+            el.classList.add('copied');
+            setTimeout(() => {
+                el.classList.remove('copied');
+            }, 2000);
+        }
+    </script>
     <script src="scripts/index.js"></script>
 </body>
 

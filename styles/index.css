@@ -2,7 +2,8 @@
     --primary: #0F766E;
     --primary-dark: #0D5E56;
     --primary-light: #2DD4BF;
-    --accent: #F97316;
+    --accent: #EC4899;
+
     --bg-body: #FDFBF7;
     --bg-surface: #FFFFFF;
     --bg-subtle: #F5F5F4;
@@ -85,8 +86,14 @@ img {
 }
 
 .btn-primary {
-    background-color: var(--primary);
+    background-color: var(--accent);
     color: var(--text-white);
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../static/donate-texture.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
@@ -98,6 +105,11 @@ img {
 .btn-accent {
     background-color: var(--accent);
     color: var(--text-white);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../static/texture-pink.png');
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .btn-accent:hover {
@@ -147,6 +159,9 @@ img {
     font-weight: 600;
     font-size: 1.25rem;
     color: var(--primary);
+    font-family: var(--font-sans);
+
+    letter-spacing: -0.01em;
 }
 
 .logo img {
@@ -431,6 +446,9 @@ img {
 
 .partner-logo {
     height: 80px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
     filter: grayscale(100%);
     opacity: 0.6;
     transition: all 0.3s ease;
@@ -504,6 +522,13 @@ img {
     padding: 8rem 0;
     background: var(--bg-surface);
 }
+
+
+
+
+
+
+
 
 .team-grid {
     display: grid;
@@ -775,5 +800,138 @@ img {
 
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+
+footer {
+    position: relative;
+    background-color: var(--primary);
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)), url('../static/footer-final.png');
+    background-size: cover;
+    background-position: center bottom;
+
+    color: var(--text-white);
+    padding: 10rem 1.5rem 4rem;
+    margin-top: 0;
+    border-radius: 0;
+}
+
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to bottom, var(--bg-body) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+footer .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+footer h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+footer h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 400px;
+    font-size: 1.1rem;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social .social-link {
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.footer-social .social-link:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    margin-bottom: 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+
+    color: #1C1917;
+    font-family: var(--font-sans);
+}
+
+.contact-form button {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 4rem 1.5rem 2rem;
+        border-radius: 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 }
