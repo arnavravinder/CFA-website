@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
         rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
     <link rel="icon" href="static/logo.png" type="image/png">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -63,7 +64,7 @@
         }
 
         .hero-label {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-sans);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             font-size: 0.8rem;
@@ -242,7 +243,7 @@
             margin-bottom: 2rem;
             cursor: pointer;
             transition: all 0.2s;
-            font-family: 'Inter', monospace;
+            font-family: var(--font-sans);
             font-size: 1rem;
             color: #1C1917;
         }
@@ -253,7 +254,7 @@
         }
 
         .copy-pill code {
-            font-family: 'Inter', monospace;
+            font-family: var(--font-sans);
         }
 
         .trust-indicator {
@@ -301,7 +302,7 @@
 
         details.premium-accordion summary::after {
             content: '+';
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-sans);
             font-weight: 300;
             font-size: 1.5rem;
         }
@@ -434,6 +435,7 @@
             <div class="nav-links">
                 <a href="/#mission" class="nav-link">About Us</a>
                 <a href="/#impact" class="nav-link">Our Work</a>
+                <a href="/#team" class="nav-link">Our Team</a>
                 <a href="fundraise.html" class="nav-link active" style="color: var(--accent);">Fundraising</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="volunteer.html" class="nav-link">Volunteer</a>
@@ -457,7 +459,7 @@
 
             <div class="impact-list">
                 <h3
-                    style="font-size: 1rem; font-family: 'Inter', sans-serif; text-transform: uppercase; color: #A8A29E; margin-bottom: 1rem; letter-spacing: 0.05em;">
+                    style="font-size: 1rem; font-family: var(--font-sans); text-transform: uppercase; color: #A8A29E; margin-bottom: 1rem; letter-spacing: 0.05em;">
                     Where funds go</h3>
 
                 <details class="premium-accordion" open>

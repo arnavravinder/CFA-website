@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const lenis = new Lenis({
+    const lenis = typeof Lenis !== 'undefined' ? new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         direction: 'vertical',
@@ -8,21 +8,23 @@ document.addEventListener('DOMContentLoaded', () => {
         mouseMultiplier: 1,
         smoothTouch: false,
         touchMultiplier: 2,
-    });
+    }) : null;
 
-    function raf(time) {
-        lenis.raf(time);
+    if (lenis) {
+        const raf = (time) => {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        };
         requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
-
-    gsap.registerPlugin(ScrollTrigger);
+    const hasGsap = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+    if (hasGsap) gsap.registerPlugin(ScrollTrigger);
 
     const timelineSection = document.querySelector('.timeline-section');
     const timelineTrack = document.querySelector('.timeline-track');
 
-    if (timelineSection && timelineTrack) {
+    if (hasGsap && timelineSection && timelineTrack) {
         if (window.innerWidth > 768) {
             let sections = gsap.utils.toArray(".timeline-card");
 
@@ -56,13 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+    const updateNavbar = () => navbar?.classList.toggle('scrolled', window.scrollY > 50);
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
 
     const statsSection = document.querySelector('.stats');
     const statNumbers = document.querySelectorAll('.stat-item h3');
@@ -102,50 +100,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            const targetElement = targetId.length > 1 && document.querySelector(targetId);
+            if (!targetElement) return;
             e.preventDefault();
-            navLinks.classList.remove('active');
+            navLinks?.classList.remove('active');
             const icon = mobileMenuBtn?.querySelector('i');
             if (icon) icon.classList.replace('ph-x', 'ph-list');
 
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
+            if (lenis) {
                 lenis.scrollTo(targetElement);
+            } else {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
 
-    const teamBios = document.querySelectorAll('.team-bio');
-    const MAX_BIO_LENGTH = 165;
-
-    teamBios.forEach(bio => {
-        const fullText = bio.textContent.trim();
-        if (fullText.length > MAX_BIO_LENGTH) {
-            const truncatedText = fullText.substring(0, MAX_BIO_LENGTH) + '...';
-            bio.textContent = truncatedText;
-
-            const readMoreBtn = document.createElement('button');
-            readMoreBtn.className = 'read-more-btn icon-btn';
-            readMoreBtn.innerHTML = '<i class="ph ph-dots-three" style="font-size: 1.2rem;"></i>';
-            readMoreBtn.setAttribute('aria-label', 'Read More');
-
-            readMoreBtn.addEventListener('click', () => {
-                if (bio.classList.contains('expanded')) {
-                    bio.textContent = truncatedText;
-                    readMoreBtn.innerHTML = '<i class="ph ph-dots-three" style="font-size: 1.2rem;"></i>';
-                    readMoreBtn.setAttribute('aria-label', 'Read More');
-                    bio.classList.remove('expanded');
-                } else {
-                    bio.textContent = fullText;
-                    readMoreBtn.innerHTML = '<i class="ph ph-caret-up" style="font-size: 1.2rem;"></i>';
-                    readMoreBtn.setAttribute('aria-label', 'Show Less');
-                    bio.classList.add('expanded');
-                }
-                bio.appendChild(readMoreBtn);
-            });
-
-            bio.appendChild(readMoreBtn);
-        }
+    if (hasGsap) gsap.utils.toArray('.team-tier').forEach(tier => {
+        gsap.from(tier.querySelectorAll('.team-member'), {
+            opacity: 0,
+            y: 40,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: tier,
+                start: 'top 85%',
+            }
+        });
     });
+
+    const teamDialog = document.querySelector('.team-dialog');
+
+    if (teamDialog) {
+        const dialogImg = teamDialog.querySelector('img');
+        const dialogName = teamDialog.querySelector('h3');
+        const dialogRole = teamDialog.querySelector('.team-role');
+        const dialogBio = teamDialog.querySelector('.team-dialog-bio');
+
+        document.querySelectorAll('.team-tier:not(.team-tier-lead) .team-member').forEach(member => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'team-bio-btn';
+            btn.innerHTML = 'Read bio <i class="ph ph-arrow-right"></i>';
+            member.appendChild(btn);
+
+            btn.addEventListener('click', () => {
+                const img = member.querySelector('img');
+                dialogImg.src = img.src;
+                dialogImg.alt = img.alt;
+                dialogName.textContent = member.querySelector('h3').textContent;
+                dialogRole.textContent = member.querySelector('.team-role').textContent;
+                dialogBio.textContent = member.querySelector('.team-bio').textContent;
+                teamDialog.showModal();
+                lenis?.stop();
+            });
+        });
+
+        teamDialog.querySelector('.team-dialog-close').addEventListener('click', () => teamDialog.close());
+        teamDialog.addEventListener('click', (e) => {
+            if (e.target === teamDialog) teamDialog.close();
+        });
+        teamDialog.addEventListener('close', () => lenis?.start());
+    }
 });

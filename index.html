@@ -10,8 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
         rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
     <link rel="icon" href="static/logo.png" type="image/png">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
@@ -33,6 +34,7 @@
             <div class="nav-links">
                 <a href="#mission" class="nav-link">About Us</a>
                 <a href="#impact" class="nav-link">Our Work</a>
+                <a href="#team" class="nav-link">Our Team</a>
                 <a href="fundraise.html" class="nav-link">Fundraising</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="volunteer.html" class="nav-link">Volunteer</a>
@@ -59,7 +61,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="static/pics/mission.png" alt="CareForAll Mission">
+                <img src="static/pics/hero-team.jpeg" alt="The CareForAll team">
             </div>
         </div>
     </section>
@@ -69,11 +71,15 @@
             <div class="stats-grid">
                 <div class="stat-item">
                     <h3 data-target="900000">₹9.0L+</h3>
-                    <p>Funds Raised</p>
+                    <p>Value of Services Provided</p>
                 </div>
                 <div class="stat-item">
-                    <h3 data-target="10">10+</h3>
-                    <p>Medical Camps</p>
+                    <h3 data-target="300000">₹3.0L+</h3>
+                    <p>Money Raised</p>
+                </div>
+                <div class="stat-item">
+                    <h3 data-target="20">20+</h3>
+                    <p>Camps</p>
                 </div>
                 <div class="stat-item">
                     <h3 data-target="2000">2000+</h3>
@@ -86,19 +92,22 @@
     <section class="mission" id="mission">
         <div class="container mission-grid">
             <div class="mission-image">
-                <img src="static/pics/unique.png" alt="Our Unique Approach"
+                <img src="static/pics/mission-highfive.jpeg" alt="A CareForAll volunteer with children at a school"
                     style="border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
             </div>
             <div class="mission-text">
                 <h2>Our Mission</h2>
-                <p>CareForAll (CFA) was birthed with the mission of providing healthcare and awareness to the
-                    underprivileged. Along our journey, we realised our potential to help even more people and spread
-                    our roots into new communities.</p>
-                <p>We hold medical camps and awareness sessions to educate children on hygiene and register adults for
-                    government schemes. We believe in holistic care—restoring health through camps and maintaining it
+                <p>CareForAll (CFA) was born with the mission of providing healthcare and awareness to the
+                    underprivileged. Along our journey, we realized our potential to help even more people and expand
+                    into new communities.</p>
+                <p>We hold medical camps and awareness sessions to educate children on hygiene, nutrition, exercise,
+                    and personal health. We believe in holistic care: restoring health through camps and maintaining it
                     through awareness.</p>
-                <p><strong>100% Non-Profit:</strong> We fund everything ourselves—medicines, follow-ups, food—leaving
-                    NGOs and schools with zero expense.</p>
+                <p>We also conduct comprehensive offline workshops on responsible antibiotic use for children and
+                    parents from underserved communities, helping India take a step toward tackling the antimicrobial
+                    resistance crisis.</p>
+                <p><strong>100% Non-Profit:</strong> We fund everything ourselves (medicines, follow-ups, and food) at
+                    no cost to the NGOs and schools we work with.</p>
             </div>
         </div>
     </section>
@@ -157,6 +166,23 @@
                         Government School for 250+ middle school children.</p>
                     <div class="timeline-number">07</div>
                 </div>
+                <div class="timeline-card">
+                    <span class="timeline-date">July 2026</span>
+                    <h3>AMR Awareness Sessions</h3>
+                    <p>Awareness sessions on responsible antibiotic use and antimicrobial resistance impacted 1000+
+                        people.</p>
+                    <div class="timeline-number">08</div>
+                </div>
+                <a class="timeline-card timeline-card-link"
+                    href="https://bangaloremirror.indiatimes.com/bangalore/others/empowering-change-bengaluru-teens-grassroots-healthcare-initiative-provides-free-medical-care-to-500-children/articleshow/132839786.cms"
+                    target="_blank" rel="noopener">
+                    <span class="timeline-date">04 Aug 2026</span>
+                    <h3>Bangalore Mirror Feature</h3>
+                    <p>Featured in Bangalore Mirror for our grassroots initiative providing free medical care to 500
+                        children.</p>
+                    <span class="timeline-link">Read the article <i class="ph ph-arrow-up-right"></i></span>
+                    <div class="timeline-number">09</div>
+                </a>
             </div>
         </div>
     </section>
@@ -186,292 +212,151 @@
                 <h2>Meet The Team</h2>
                 <p>The passionate individuals driving our mission forward.</p>
             </div>
-            <div class="team-grid">
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/arnav.jpeg" alt="Arnav Raj Aggarwal" class="team-img"
-                            style="object-position: top;">
-                        <div class="team-name-overlay">
-                            <h3>Arnav Raj Aggarwal</h3>
+            <div class="team-tree">
+                <div class="team-tier team-tier-lead">
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/pranoy.png" alt="Pranoy Mathur">
                         </div>
-                    </div>
-                    <div class="team-info">
-                        <p class="team-role">Founder</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Arnav Raj Aggarwal is the Founder of CareForAll, driven by a vision to bridge the healthcare
-                            gap for underprivileged communities. With a commitment to social impact, he leads the
-                            organization in conducting medical camps, hygiene awareness sessions, and educational
-                            initiatives that have touched over 1000 lives. Arnav's leadership has fostered key
-                            partnerships and brought attention to critical health issues, as he strives to build a
-                            healthier, more equitable future for all.</p>
-                    </div>
-                </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/pranoy.png" alt="Pranoy Mathur" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Pranoy Mathur</h3>
-                        </div>
-                    </div>
-                    <div class="team-info">
+                        <h3>Pranoy Mathur</h3>
                         <p class="team-role">CEO and Head of Operations</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Pranoy Mathur leads the team as CEO
-                            and Head of Operations, where he oversees the strategic direction and day-to-day functioning
-                            of the organization. With a strong commitment to growing operations and optimizing
-                            impact, Pranoy ensures that every initiative is executed efficiently to reach those in
-                            need.</p>
+                        <p class="team-bio">Pranoy Mathur leads CareForAll as CEO and Head of Operations. Since taking over, he has rebuilt CFA from the ground up. He founded its health awareness sessions and launched its antimicrobial resistance (AMR) initiative, which teaches children and parents in underserved communities about responsible antibiotic use. He has also scaled the impact of the medical camps through new partnerships and increased funding drives.</p>
                     </div>
                 </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/arnav_ravinder.png" alt="Arnav Ravinder" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Arnav Ravinder</h3>
+                <div class="team-tier">
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/vittal.png" alt="Vittal Iyengar">
                         </div>
-                    </div>
-                    <div class="team-info">
-                        <p class="team-role">Technology Team</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Arnav Ravinder is a passionate technologist dedicated to making education and opportunities
-                            accessible to everyone. With expertise in full-stack development and a drive to use tech for
-                            social good, Arnav leads the technology efforts at CareForAll, ensuring our digital presence
-                            drives real-world impact.</p>
-                    </div>
-                </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/vittal.png" alt="Vittal Iyengar" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Vittal Iyengar</h3>
-                        </div>
-                    </div>
-                    <div class="team-info">
+                        <h3>Vittal Iyengar</h3>
                         <p class="team-role">Medical Camp Manager</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Vittal is a student, aspiring to work in translational medicine and biochemistry, bridging
-                            scientific research with real-world healthcare solutions. He hopes to give back to the
-                            community and help scale up CareForAll's operation to new heights.</p>
+                        <p class="team-bio">Vittal is a student, aspiring to work in translational medicine and biochemistry, bridging scientific research with real-world healthcare solutions. He hopes to give back to the community and help scale up CareForAll's operation to new heights.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/vanya.jpg" alt="Vanya Nath">
+                        </div>
+                        <h3>Vanya Nath</h3>
+                        <p class="team-role">Head of Content Creation & Digital Design</p>
+                        <p class="team-bio">Vanya is the head of our content creation and digital design department. She is passionate about biology, chemistry and the medical sciences not only in textbooks, but in terms of translating the sciences to serve people. She loves engaging in dialogue and public service and action ,therefore wanting to broaden healthcare access and community change through CareForAll's page, in an effort to merge compassion and a keenness in medicine to make a difference.</p>
                     </div>
                 </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/siddharth.jpg" alt="Siddharth Venkatesh" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Siddharth Venkatesh</h3>
+                <div class="team-tier">
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/arnav_ravinder.png" alt="Arnav Ravinder">
                         </div>
-                    </div>
-                    <div class="team-info">
-                        <p class="team-role">Head of Public Relations</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Siddharth Venkatesh is a skilled orator, athlete and researcher. He has an array of skills
-                            which he uses to fulfill his role as Head of Public Relations.</p>
+                        <h3>Arnav Ravinder</h3>
+                        <p class="team-role">Technology Team</p>
+                        <p class="team-bio">Arnav Ravinder is a passionate technologist dedicated to making education and opportunities accessible to everyone. With expertise in full-stack development and a drive to use tech for social good, Arnav leads the technology efforts at CareForAll, ensuring our digital presence drives real-world impact.</p>
                     </div>
                 </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/yavisht.jpg" alt="Yavisht Sethi" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Yavisht Sethi</h3>
+                <div class="team-tier">
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/dia.jpg" alt="Dia Maheshwari">
                         </div>
-                    </div>
-                    <div class="team-info">
-                        <p class="team-role">Co-CFO</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Yavisht (Yavi) has a deep interest in economics and political science. He is sixteen years
-                            old and is currently studying at Inventure Academy. He is the Co-CFO of CareForAll. Through
-                            this initiative he wishes to make a real impact on the underprivileged community that he
-                            wishes to give back to.</p>
-                    </div>
-                </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/dia.jpg" alt="Dia Maheshwari" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Dia Maheshwari</h3>
-                        </div>
-                    </div>
-                    <div class="team-info">
+                        <h3>Dia Maheshwari</h3>
                         <p class="team-role">Finance & Fundraising Team</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            With a deep interest in the life sciences and a commitment to creating meaningful social
-                            impact, Dia hopes to give back to the community through her work at CareForAll. She
-                            contributes to the organization's financial planning, budgeting, and fundraising efforts
-                            that sustain its outreach initiatives. Guided by compassion and the desire to make a
-                            difference in people's lives, Dia strives to help CareForAll make quality medical care more
-                            accessible to underprivileged children.</p>
+                        <p class="team-bio">With a deep interest in the life sciences and a commitment to creating meaningful social impact, Dia hopes to give back to the community through her work at CareForAll. She contributes to the organization's financial planning, budgeting, and fundraising efforts that sustain its outreach initiatives. Guided by compassion and the desire to make a difference in people's lives, Dia strives to help CareForAll make quality medical care more accessible to underprivileged children.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/yavisht.jpg" alt="Yavisht Sethi">
+                        </div>
+                        <h3>Yavisht Sethi</h3>
+                        <p class="team-role">Co-CFO</p>
+                        <p class="team-bio">Yavisht (Yavi) has a deep interest in economics and political science. He is sixteen years old and is currently studying at Inventure Academy. He is the Co-CFO of CareForAll. Through this initiative he wishes to make a real impact on the underprivileged community that he wishes to give back to.</p>
                     </div>
                 </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/vanya.jpg" alt="Vanya Nath" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Vanya Nath</h3>
+                <div class="team-tier team-tier-wide">
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/default.jpeg" alt="Ameya Kamerkar">
                         </div>
+                        <h3>Ameya Kamerkar</h3>
+                        <p class="team-role">Head of Public Relations</p>
+                        <p class="team-bio">Ameya is studying in 11th grade in Inventure Academy and plans to pursue medicine in the future. Along with a deep interest in biology, he is passionate about creating real impact in the community. Through CareForAll, he hopes to make healthcare more accessible and spread awareness to underprivileged children.</p>
                     </div>
-                    <div class="team-info">
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/tara.jpg" alt="Tara Zende">
+                        </div>
+                        <h3>Tara Zende</h3>
                         <p class="team-role">Head of Content Creation & Digital Design</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Vanya is the head of our content creation and digital design department. She is passionate
-                            about biology, chemistry and the medical sciences not only in textbooks, but in terms of
-                            translating the sciences to serve people. She loves engaging in dialogue and public service
-                            and action ,therefore wanting to broaden healthcare access and community change through
-                            CareForAll's page, in an effort to merge compassion and a keenness in medicine to make a
-                            difference.</p>
+                        <p class="team-bio">Tara is the head of our content creation and digital design department. She has a passion for Biology, Chemistry, and hopes to work in biotechnology to bring several advancements to the healthcare world. She hopes to help grow CareForAll to a larger scale, and improve the lives of many.</p>
                     </div>
-                </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/tara.jpg" alt="Tara Zende" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Tara Zende</h3>
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/meher.jpg" alt="Meher Sinha">
                         </div>
-                    </div>
-                    <div class="team-info">
-                        <p class="team-role">Head of Content Creation & Digital Design</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Tara is the head of our content creation and digital design department. She has a passion
-                            for Biology, Chemistry, and hopes to work in biotechnology to bring several advancements to
-                            the healthcare world. She hopes to help grow CareForAll to a larger scale, and improve the
-                            lives of many.</p>
-                    </div>
-                </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/vivaan.png" alt="Vivaan Jain" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Vivaan Jain</h3>
-                        </div>
-                    </div>
-                    <div class="team-info">
-                        <p class="team-role">Finance Team</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Vivaan is part of the finance team at Care for All, where he channels his passion for money
-                            and finance into meaningful impact. Fascinated by how finance can drive growth and
-                            opportunity, he hopes to build a career in finance and business that makes a real
-                            difference. At Care for All, Vivaan hopes to see the organization scale and impact as many
-                            lives as possible, reaching more communities and creating lasting change. Outside of this,
-                            he's passionate about sports and debate, which fuel his competitive spirit, focus, and
-                            ability to think on his feet.</p>
-                    </div>
-                </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/meher.jpg" alt="Meher Sinha" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Meher Sinha</h3>
-                        </div>
-                    </div>
-                    <div class="team-info">
+                        <h3>Meher Sinha</h3>
                         <p class="team-role">Digital Designer</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Meher is a digital designer who combines her passion for creativity and service. Driven by a
-                            deep interest in biology and chemistry, and how they can enhance everyday life, she aims to
-                            expand CareForAll's reach to as many students as possible. Guided by her commitment to
-                            service, she believes that thoughtful design can create awareness, inspire empathy, and make
-                            healthcare more accessible to the underprivileged.</p>
+                        <p class="team-bio">Meher is a digital designer who combines her passion for creativity and service. Driven by a deep interest in biology and chemistry, and how they can enhance everyday life, she aims to expand CareForAll's reach to as many students as possible. Guided by her commitment to service, she believes that thoughtful design can create awareness, inspire empathy, and make healthcare more accessible to the underprivileged.</p>
                     </div>
-                </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/aditi.png" alt="Aditi Raman" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Aditi Raman</h3>
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/aditi.png" alt="Aditi Raman">
                         </div>
-                    </div>
-                    <div class="team-info">
+                        <h3>Aditi Raman</h3>
                         <p class="team-role">Content Creation Team</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Aditi is a member of CareForAll's Content Creation team, and loves both studying and
-                            applying the concepts of Economics, Computer Science and Psychology to her everyday life.
-                            She enjoys observing the world around her as well as researching interesting subjects and
-                            expressing her ideas through writing. With a passion for creating content with intent, she
-                            aims to share CareForAll's mission and purpose, and help expand their reach through social
-                            media to support its goal of providing healthcare and awareness to the underprivileged.</p>
+                        <p class="team-bio">Aditi is a member of CareForAll's Content Creation team, and loves both studying and applying the concepts of Economics, Computer Science and Psychology to her everyday life. She enjoys observing the world around her as well as researching interesting subjects and expressing her ideas through writing. With a passion for creating content with intent, she aims to share CareForAll's mission and purpose, and help expand their reach through social media to support its goal of providing healthcare and awareness to the underprivileged.</p>
                     </div>
-                </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/alpana.jpg" alt="Alpana Pillai" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Alpana Pillai</h3>
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/alpana.jpg" alt="Alpana Pillai">
                         </div>
-                    </div>
-                    <div class="team-info">
+                        <h3>Alpana Pillai</h3>
                         <p class="team-role">Content Creation Team</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Alpana is part of the content creation team where she utilizes her fondness for creative and
-                            writing skills. Her goal is to implement writing and creativity in the real world through
-                            Care For All, where she will harness her skills to help underprivileged and less fortunate
-                            children. Driven by s belief that writing and creativity holds power, she hopes to use these
-                            skills to largen the scale of Care For All's reach to help as many children as possible</p>
+                        <p class="team-bio">Alpana is part of the content creation team where she utilizes her fondness for creative and writing skills. Her goal is to implement writing and creativity in the real world through Care For All, where she will harness her skills to help underprivileged and less fortunate children. Driven by s belief that writing and creativity holds power, she hopes to use these skills to largen the scale of Care For All's reach to help as many children as possible</p>
                     </div>
-                </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/twisha.jpg" alt="Twisha Singh" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Twisha Singh</h3>
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/twisha.jpg" alt="Twisha Singh">
                         </div>
-                    </div>
-                    <div class="team-info">
+                        <h3>Twisha Singh</h3>
                         <p class="team-role">Writer & Content Creator</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Twisha is a writer and content creator drawn to the quiet wonders of the human mind and
-                            body. She finds beauty in biology, meaning in psychology, and endless curiosity in
-                            philosophy. Through CareForAll, she hopes to weave science and story together — turning
-                            information into understanding, and empathy into action.</p>
+                        <p class="team-bio">Twisha is a writer and content creator drawn to the quiet wonders of the human mind and body. She finds beauty in biology, meaning in psychology, and endless curiosity in philosophy. Through CareForAll, she hopes to weave science and story together — turning information into understanding, and empathy into action.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/aaishwaryaa.jpg" alt="Aaishwaryaa Mishra">
+                        </div>
+                        <h3>Aaishwaryaa Mishra</h3>
+                        <p class="team-role">Social Media Team</p>
+                        <p class="team-bio">Aaishwaryaa is part of the social media team with a passion for creating meaningful impact in society. She aims to use her content creation skills and creative ideas to help underprivileged children by spreading awareness and driving action through digital platforms. With a strong interest in dance along with a passion for video editing, graphic design, and content creation, she enjoys using creativity as a bridge to connect with people and spark change. Through Care For All, She hopes to further achieve this mission, inspire empathy, awareness, and social responsibility.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/vivaan.png" alt="Vivaan Jain">
+                        </div>
+                        <h3>Vivaan Jain</h3>
+                        <p class="team-role">Finance Team</p>
+                        <p class="team-bio">Vivaan is part of the finance team at Care for All, where he channels his passion for money and finance into meaningful impact. Fascinated by how finance can drive growth and opportunity, he hopes to build a career in finance and business that makes a real difference. At Care for All, Vivaan hopes to see the organization scale and impact as many lives as possible, reaching more communities and creating lasting change. Outside of this, he's passionate about sports and debate, which fuel his competitive spirit, focus, and ability to think on his feet.</p>
                     </div>
                 </div>
-
-
-                <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="static/profile picture/aaishwaryaa.jpg" alt="Aaishwaryaa Mishra" class="team-img">
-                        <div class="team-name-overlay">
-                            <h3>Aaishwaryaa Mishra</h3>
+                <p class="team-tier-label">Where it all began</p>
+                <div class="team-tier team-tier-founder">
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <img src="static/profile picture/arnav.jpeg" alt="Arnav Raj Aggarwal">
                         </div>
-                    </div>
-                    <div class="team-info">
-                        <p class="team-role">Social Media Team</p>
-                        <p class="team-bio" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
-                            Aaishwaryaa is part of the social media team with a passion for creating meaningful impact
-                            in society. She aims to use her content creation skills and creative ideas to help
-                            underprivileged children by spreading awareness and driving action through digital
-                            platforms. With a strong interest in dance along with a passion for video editing, graphic
-                            design, and content creation, she enjoys using creativity as a bridge to connect with people
-                            and spark change. Through Care For All, She hopes to further achieve this mission, inspire
-                            empathy, awareness, and social responsibility.</p>
+                        <h3>Arnav Raj Aggarwal</h3>
+                        <p class="team-role">Founder</p>
+                        <p class="team-bio">Arnav Raj Aggarwal is the Founder of CareForAll, driven by a vision to bridge the healthcare gap for underprivileged communities. With a commitment to social impact, he leads the organization in conducting medical camps, hygiene awareness sessions, and educational initiatives that have touched over 1000 lives. Arnav's leadership has fostered key partnerships and brought attention to critical health issues, as he strives to build a healthier, more equitable future for all.</p>
                     </div>
                 </div>
             </div>
+
+            <dialog class="team-dialog" aria-label="Team member bio">
+                <div class="team-dialog-body">
+                    <button type="button" class="team-dialog-close" aria-label="Close"><i class="ph ph-x"></i></button>
+                    <div class="team-avatar"><img src="" alt=""></div>
+                    <h3></h3>
+                    <p class="team-role"></p>
+                    <p class="team-dialog-bio"></p>
+                </div>
+            </dialog>
 
 
             <div class="volunteer-section">
