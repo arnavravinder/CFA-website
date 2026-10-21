@@ -434,7 +434,7 @@ a.timeline-card:hover .timeline-link {
 
 .timeline-number {
     position: absolute;
-    top: -4rem;
+    top: -2.5rem;
     left: 2rem;
     font-size: 8rem;
     font-family: var(--font-serif);
@@ -755,8 +755,8 @@ a.timeline-card:hover .timeline-link {
 }
 
 .team-tier-lead .team-member {
-    width: 100%;
-    max-width: 640px;
+    flex: 1 1 320px;
+    max-width: 560px;
 }
 
 .team-tier-lead .team-avatar {
